@@ -7,6 +7,7 @@ import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
 import MeetingStats from './components/MeetingStats'
+import MeetingMainMenu from './components/MeetingMainMenu'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -19,7 +20,7 @@ const DisplayLinks = props => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/meeting-stats" className="nav-link">
+						<Link to="/meetings" className="nav-link">
 							Meeting
 						</Link>
 					</li>
@@ -126,6 +127,7 @@ class App extends Component {
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
 				<Route exact path="/" render={() => <Home user={this.state.user} />} />
+				<Route exact path="/meetings" render={() => <MeetingMainMenu user={this.state.user} />} />
 				<Route exact path="/meeting-stats" render={() => <MeetingStats user={this.state.user} />} />
 				<Route
 					exact
