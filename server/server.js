@@ -14,9 +14,9 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const mongoose = require("mongoose");
 const meetingRoutes = require("./routes/meetingAPI");
 const path = require("path");
-const passport = require('./passport')
-const app = express()
-const PORT = process.env.PORT || 8080
+const passport = require('./passport');
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // ===== Middleware ====
 app.use(morgan('dev'))
