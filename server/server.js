@@ -87,4 +87,4 @@ app.listen(PORT, () => {
 })
 
 // Add API Routes
-// app.use("/api/meetings", meetingRoutes);
+app.use("/api/meetings", meetingRoutes);
