@@ -6,8 +6,8 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
-import MeetingStats from './components/MeetingStats'
-import MeetingMainMenu from './components/MeetingMainMenu'
+import MeetingStats from './components/Meetings/MeetingStats'
+import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {

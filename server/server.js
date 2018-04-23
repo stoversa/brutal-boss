@@ -11,6 +11,9 @@ const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./db') // loads our connection to the mongo database
+const mongoose = require("mongoose");
+const meetingRoutes = require("./routes/meetingAPI");
+const path = require("path");
 const passport = require('./passport')
 const app = express()
 const PORT = process.env.PORT || 8080
@@ -82,3 +85,6 @@ app.use(function(err, req, res, next) {
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })
+
+// Add API Routes
+// app.use("/api/meetings", meetingRoutes);

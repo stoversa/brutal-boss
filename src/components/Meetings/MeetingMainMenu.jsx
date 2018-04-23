@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // TODO - add proptypes
 
 const MeetingMainMenu = props => {
@@ -24,16 +24,16 @@ const MeetingMainMenu = props => {
                 <h5 className="card-title">Create a Meeting</h5>
                 <form>
                   <div className="form-group">
-                    <label htmlFor="speakers">Speakers</label>
+                    <label htmlFor="speakers">Speaker</label>
                     <input type="text" className="form-control" id="speakers" placeholder="John Smith"/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="eventDate">Event Date</label>
-                    <input type="password" className="form-control" id="eventDate" placeholder="MM-DD-YYYY"/>
+                    <input type="date" className="form-control" id="eventDate" placeholder="MM-DD-YYYY"/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="location">Location or Platform</label>
-                    <input type="password" className="form-control" id="location" placeholder="Location or Platform"/>
+                    <input type="text" className="form-control" id="location" placeholder="Location or Platform"/>
                   </div>
                   <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
