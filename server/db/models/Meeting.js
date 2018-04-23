@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const meetingSchema = new mongoose.Schema({
-  id: {
+  meetingId: {
     type: String,
     require: true
   },
@@ -14,7 +14,7 @@ const meetingSchema = new mongoose.Schema({
     require: true
   },
   eventDate: {
-    type: Date,
+    type: String,
     require: true
   },
   location: {
@@ -22,5 +22,6 @@ const meetingSchema = new mongoose.Schema({
     require: true
   },
 });
+
 
 module.exports = mongoose.model("Meeting", meetingSchema);

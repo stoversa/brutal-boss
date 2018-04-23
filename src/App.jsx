@@ -131,9 +131,23 @@ class App extends Component {
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
-				<Route exact path="/" render={() => <Home user={this.state.user} />} />
-				<Route exact path="/meetings" render={() => <MeetingMainMenu user={this.state.user} />} />
-				<Route exact path="/meeting-stats" render={() => <MeetingStats user={this.state.user} />} />
+				<Route exact path="/" 
+					render={() => 
+						<Home 
+							user={this.state.user} />} 
+						/>
+				<Route 
+					exact path="/meetings" 
+					render={() => 
+						<MeetingMainMenu 
+							user={this.state.user} />} 
+						/>
+				<Route 
+					exact path="/meeting-stats" 
+					render={() => 
+						<MeetingStats 
+							user={this.state.user} />} 
+						/>
 				<Route
 					exact
 					path="/login"
