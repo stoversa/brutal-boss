@@ -1,36 +1,60 @@
 import React from 'react'
 // TODO - add proptypes
 
-const Review = props => {
+class Review extends React.Component {
 
-  const availableUsers = [
-    {
-    userId: 1,
-    name: "Tony"
-    },
-    {
-      userId: 2,
-      name: "Dawn"
-    },
-    {
-      userId: 3,
-      name: "Greg"
-    },
-    {
-      userId: 4,
-      name: "Ryan"
-    },
-    {
-      userId: 5,
-      name: "Jess"
-    },
-    {
-      userId: 6,
-      name: "Sam"
-    }]
+  constructor(props) {
+    super(props);
+    this.state = {
+      userSelected: "",
+      rating: "",
+      comment: "",
+      availableUsers: [
+        {
+          userId: 1,
+          name: "Tony"
+        },
+        {
+          userId: 2,
+          name: "Dawn"
+        },
+        {
+          userId: 3,
+          name: "Greg"
+        },
+        {
+          userId: 4,
+          name: "Ryan"
+        },
+        {
+          userId: 5,
+          name: "Jess"
+        },
+        {
+          userId: 6,
+          name: "Sam"
+        }]
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
+  }
+//eventually make this state
 
 
-  if (props.user) {
+  handleChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render () {
+    if (this.props.user) {
     return (
       <div className="container-fluid bg-light">
         <div className="row">
@@ -48,7 +72,7 @@ const Review = props => {
           <div className="col-xl-2 col-md-3 text-light bg-secondary">
             <input className="form-control" type="text" placeholder="Search" />
             <ul className="list-group list-group-flush text-light bg-secondary">
-              {availableUsers.map(user => (
+              {this.state.availableUsers.map(user => (
                 <li className="list-group-item list-group-item-action text-light bg-secondary text-left">
                   <img src={user.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={user.name} width="30" height="30" />
                   <span>&nbsp;{user.name}</span>
@@ -118,8 +142,8 @@ const Review = props => {
             <div className="row">
               <form className="col-12 bg-light">
                 <div className="form-group">
-                  <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="commentHelp" placeholder="Comment here" />
-                  <small id="commentHelp" className="form-text text-muted">Input your comment here</small>
+                  <input type="text" value={this.state.value} onChange={this.handleInputChange} className="form-control" id="exampleInputEmail1" name="comment" aria-describedby="commentHelp" placeholder="Comment here" />
+                  <small id="commentHelp" className="form-text text-muted" >Input your comment here</small>
                 </div>
               </form>
             </div>
@@ -150,5 +174,5 @@ const Review = props => {
     )
   }
 }
-
+}
 export default Review;
