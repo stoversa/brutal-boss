@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const meetingsController = require("../controllers/meetingsController")
+const meetingsController = require("../meetingsController")
 
 // Matches with "/api/meetings" (check server.js line 19)
 router.route("/")
