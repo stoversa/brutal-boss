@@ -14,9 +14,10 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const mongoose = require("mongoose");
 const meetingRoutes = require("../src/controllers/routes/meetingAPI");
 const path = require("path");
-const passport = require('./passport')
-const app = express()
-const PORT = process.env.PORT || 8080
+const passport = require('./passport');
+const app = express();
+const socket = require("socket.io");
+const PORT = process.env.PORT || 8080;
 
 // ===== Middleware ====
 app.use(morgan('dev'))
@@ -34,6 +35,21 @@ app.use(
 		saveUninitialized: false
 	})
 )
+
+// ==== Starting Server =====
+server = app.listen(PORT, () => {
+	console.log(`App listening on PORT: ${PORT}`)
+})
+
+io = socket(server);
+
+io.on("connection", (socket) => {
+	console.log(socket.id);
+
+	socket.on("SEND_MESSAGE", function(data) {
+		io.emit("RECIEVE_MESSAGE", data);
+	})
+});
 
 // ===== Passport ====
 app.use(passport.initialize())
@@ -81,10 +97,7 @@ app.use(function(err, req, res, next) {
 	res.status(500)
 })
 
-// ==== Starting Server =====
-app.listen(PORT, () => {
-	console.log(`App listening on PORT: ${PORT}`)
-})
+
 
 // Add API Routes
 app.use("/api/meetings", meetingRoutes);
