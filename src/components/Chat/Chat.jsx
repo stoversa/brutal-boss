@@ -1,5 +1,6 @@
 import React from "react";
-import io from "socket.io-client"
+import io from "socket.io-client";
+import "./Chat.css";
 
 class Chat extends React.Component {
     constructor(props) {
@@ -49,7 +50,6 @@ class Chat extends React.Component {
                                             )
                                         })}
                                     </div>
-
                                 </div>
                                 <div className="card-footer">
                                     <input type="text" placeholder="Username" value={this.state.username} onChange={ev => this.setState({ username: ev.target.value })} className="form-control" />

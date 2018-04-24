@@ -8,7 +8,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
-import Chat from "./components/Chat";
+import Chat from "./components/Chat/Chat";
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
