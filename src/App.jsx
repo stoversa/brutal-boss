@@ -8,6 +8,8 @@ import Header from './components/Header'
 import Home from './components/Home'
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
+import Review from './components/Review'
+import CurrentMeeting from './components/Meetings/CurrentMeeting'
 import Chat from "./components/Chat/Chat";
 
 const DisplayLinks = props => {
@@ -150,6 +152,18 @@ class App extends Component {
 						<MeetingStats 
 							user={this.state.user} />} 
 						/>
+				<Route
+					exact path="/review"
+					render={() =>
+						<Review
+							user={this.state.user} />}
+				/>
+				<Route
+					exact path="/current"
+					render={() =>
+						<CurrentMeeting
+							user={this.state.user} />}
+				/>
 				<Route
 					exact
 					path="/login"
