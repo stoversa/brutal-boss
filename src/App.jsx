@@ -8,7 +8,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
-import Review from './components/Review'
+import Review from './components/Meetings/Review'
 import CurrentMeeting from './components/Meetings/CurrentMeeting'
 import Chat from "./components/Chat/Chat";
 
