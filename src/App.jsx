@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
+import Chat from "./components/Chat";
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
@@ -61,6 +62,7 @@ const DisplayLinks = props => {
 		)
 	}
 }
+
 
 class App extends Component {
 	constructor() {
@@ -159,6 +161,9 @@ class App extends Component {
 				/>
 				<Route exact path="/signup" component={SignupForm} />
 				{/* <LoginForm _login={this._login} /> */}
+				<div className="globalChat">
+					<Chat />
+				</div>
 			</div>
 		)
 	}
