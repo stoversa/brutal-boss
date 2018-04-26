@@ -21,6 +21,10 @@ const meetingSchema = new mongoose.Schema({
     type: String,
     require: true
   },
+  comments: [{ 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Comments',
+    require: false }]
 });
 
 
