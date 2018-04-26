@@ -7,7 +7,7 @@ class Review extends React.Component {
     super(props);
     this.state = {
       userSelected: "",
-      rating: "fdsafaksdfjsdl",
+      rating: "",
       comment: ""
     }
 
