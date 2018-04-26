@@ -13,6 +13,7 @@ const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./db') // loads our connection to the mongo database
 const mongoose = require("mongoose");
 const meetingRoutes = require("../src/controllers/routes/meetingAPI");
+const commentRoutes = require("../src/controllers/routes/commentsAPI");
 const path = require("path");
 const passport = require('./passport');
 const app = express();
@@ -101,3 +102,4 @@ app.use(function(err, req, res, next) {
 
 // Add API Routes
 app.use("/api/meetings", meetingRoutes);
+app.use("/api/comments", commentRoutes);

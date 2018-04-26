@@ -63,7 +63,7 @@ class Review extends React.Component {
   render () {
     if (this.props.user) {
     return (
-      <div className="table-responsive">
+      <div className="table-responsive col-11">
         <table className="table">
           <thead>
             <tr>
@@ -76,18 +76,6 @@ class Review extends React.Component {
           <tbody>
               {this.state.availableUsers.map(user => (
               <Tablerow name={user.name} photo={user.photo} availableUsers={this.state.availableUsers}/>
-
-              // <tr data={user.name}>
-              //   <th>
-              //     <img src={user.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={user.name} width="30" height="30" key={user.name + '-reviewer'}/>
-              //     <span>&nbsp;{user.name}</span>
-              //   </th>
-              //   {this.state.availableUsers.map(user => (
-              //     <td key={user.name + '-unclear'} data={user.name} className="bg-dark text-light" onClick={this.logThis}>
-              //       <span>.</span>
-              //     </td>
-              //   ))}
-              // </tr>
               ))}
           </tbody>
         </table>
