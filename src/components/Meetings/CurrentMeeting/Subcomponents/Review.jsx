@@ -1,13 +1,15 @@
 import React from 'react'
-// TODO - add proptypes
+import axios from "axios";
 
 class Review extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      userSelected: "",
-      rating: "fdsafaksdfjsdl",
+      meetingId: "5ae216695497bc3276368b83",
+      commentBy: "?",
+      commentAbout: "?",
+      rating: "",
       comment: ""
     }
 
@@ -32,8 +34,15 @@ class Review extends React.Component {
     }
 
     submitRating = event => {
-      
-
+      axios.post("/api/comments", this.state)
+        .then(res => {
+          res => console.log(res)
+          // axios.put(`/api/meeting/${this.state.meetingId}`, { comments: res._id })
+          //   .then(res => console.log(res))
+          //   .catch(err => console.log(err));
+        })
+        // .then(res => this.props.history.push("/meetings")) // redirect to home page
+        .catch(err => console.log(err));
     }
 
   render ()  {
@@ -47,7 +56,7 @@ class Review extends React.Component {
             <h3 className="text-center">Create a New Review</h3>
           </div>
           <div className="col-xl-1 col-md-2">
-            <button className="btn btn-outline-success btn-block">Submit</button>
+            <button className="btn btn-outline-success btn-block" onClick={this.submitRating}>Submit</button>
           </div>
         </div>
         <div className="row">

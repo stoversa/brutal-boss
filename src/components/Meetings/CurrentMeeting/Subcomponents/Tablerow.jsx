@@ -21,11 +21,22 @@ class Tablerow extends React.Component {
           <img src={this.props.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={this.props.name} width="30" height="30" key={this.props.name + '-reviewer'} />
           <span>&nbsp;{this.props.name}</span>
         </th>
-        {this.props.availableUsers.map(user => (
-          <td key={`${this.props.name}-row${this.state.row++}`} data={this.props.name} className="bg-dark text-light" onClick={this.logThis}>
-            <span>.</span>
-          </td>
-        )
+        {this.props.availableUsers.map(user => {
+          if(user.name !== this.props.name){
+            return (
+            <td key={`${user.name}-row${this.state.row++}`} data={user.name} className="bg-dark text-light" onClick={this.logThis}>
+              <span>.</span>
+            </td>
+          )
+          }
+          else {
+            return (
+              <td key={`${user.name}-row${this.state.row++}`} className="bg-dark text-light">
+                <span>X</span>
+              </td>
+            )
+          }
+        }
         )}
       </tr>
     )
