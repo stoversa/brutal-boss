@@ -1,5 +1,7 @@
 import React from 'react'
-// TODO - add proptypes
+import Tableheader from "./Subcomponents/Tableheader"
+import Tablerow from "./Subcomponents/Tablerow"
+// TODO - add proptypes 
 
 class Review extends React.Component {
 
@@ -67,26 +69,25 @@ class Review extends React.Component {
             <tr>
               <th></th>
               {this.state.availableUsers.map(user => (
-                <th>
-                  <img src={user.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={user.name} width="30" height="30" key={user.name + '-reviewed'}/>
-                  <span>&nbsp;{user.name}</span>
-                </th>
+                <Tableheader name={user.name} photo={user.photo} key={user.name+"header"}/>
               ))}
             </tr>
           </thead>
           <tbody>
               {this.state.availableUsers.map(user => (
-              <tr data={user.name}>
-                <th>
-                  <img src={user.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={user.name} width="30" height="30" key={user.name + '-reviewer'}/>
-                  <span>&nbsp;{user.name}</span>
-                </th>
-                {this.state.availableUsers.map(user => (
-                  <td key={user.name + '-unclear'} data={user.name} className="bg-dark text-light" onClick={this.logThis}>
-                    <span>.</span>
-                  </td>
-                ))}
-              </tr>
+              <Tablerow name={user.name} photo={user.photo} availableUsers={this.state.availableUsers}/>
+
+              // <tr data={user.name}>
+              //   <th>
+              //     <img src={user.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={user.name} width="30" height="30" key={user.name + '-reviewer'}/>
+              //     <span>&nbsp;{user.name}</span>
+              //   </th>
+              //   {this.state.availableUsers.map(user => (
+              //     <td key={user.name + '-unclear'} data={user.name} className="bg-dark text-light" onClick={this.logThis}>
+              //       <span>.</span>
+              //     </td>
+              //   ))}
+              // </tr>
               ))}
           </tbody>
         </table>
