@@ -14,8 +14,9 @@ const commentSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    timestamps: {
-        createdAt: 'created_at',
+    timestamp: {
+        type: Date, 
+        default: Date.now,
         require: true
     },
     comment: {
