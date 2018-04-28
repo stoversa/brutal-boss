@@ -25,13 +25,12 @@ class Tablerow extends React.Component {
           if(user.name !== this.props.name){
             return (
             <td key={`${user.name}-row${this.state.row++}`} data={user.name} className="bg-dark text-light" onClick={this.logThis}>
-              <span>.</span>
             </td>
           )
           }
           else {
             return (
-              <td key={`${user.name}-row${this.state.row++}`} className="bg-dark text-light">
+              <td key={`${user.name}-row${this.state.row++}`} className="bg-white">
                 <span>X</span>
               </td>
             )

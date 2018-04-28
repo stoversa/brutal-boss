@@ -64,7 +64,7 @@ class Review extends React.Component {
     if (this.props.user) {
     return (
       <div className="table-responsive col-11">
-        <table className="table">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th></th>
