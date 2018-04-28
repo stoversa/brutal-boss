@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from "axios";
+import axios from 'axios';
 
 class Review extends React.Component {
 
@@ -36,12 +36,17 @@ class Review extends React.Component {
     submitRating = event => {
       axios.post("/api/comments", this.state)
         .then(res => {
-          res => console.log(res)
-          // axios.put(`/api/meeting/${this.state.meetingId}`, { comments: res._id })
-          //   .then(res => console.log(res))
-          //   .catch(err => console.log(err));
+          console.log(res.data._id);
+          this.addComment(res.data._id);
         })
-        // .then(res => this.props.history.push("/meetings")) // redirect to home page
+        .catch(err => console.log(err));
+    }
+
+    addComment = id => {
+      let url = `/api/meetings/${this.state.meetingId}`;
+      let update = { $push: { comments: id } }
+      axios.put(url, update)
+        .then(res => console.log(res))
         .catch(err => console.log(err));
     }
 
