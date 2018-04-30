@@ -30,8 +30,8 @@ class MeetingMainMenu extends React.Component {
       });
       console.log(this.state)
       axios.post("/api/meetings", this.state)
-        // .then(res => console.log(res))
-        .then(res => this.props.history.push("/")) // redirect to home page
+        .then(res => console.log(res.data._id))
+        // .then(res => this.props.history.push("/")) // redirect to home page
         .catch(err => console.log(err));
 
     }
@@ -79,7 +79,7 @@ class MeetingMainMenu extends React.Component {
                       onChange={this.onChange} 
                       placeholder="ABC123@" 
                     />
-                    <button type="submit" className="btn btn-primary" onClick={this.onSearch}>Submit</button>
+                    <button type="submit" className="btn btn-primary" onClick={this.onSearch} id="meetingSearch">Search</button>
                   </div>
                 </div>
               </div>
