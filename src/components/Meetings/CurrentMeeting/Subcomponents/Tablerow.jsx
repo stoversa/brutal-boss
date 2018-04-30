@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class Tablerow extends React.Component {
 
@@ -7,11 +7,6 @@ class Tablerow extends React.Component {
     this.state = {
       row: 0
     }
-  }
-
-  logThis = (event) => {
-    console.log("target:" + event.target.getAttribute('data'))
-    console.log("reviewer:" + event.target.parentElement.getAttribute('data'))
   }
 
   render() {
@@ -24,7 +19,7 @@ class Tablerow extends React.Component {
         {this.props.availableUsers.map(user => {
           if(user.name !== this.props.name){
             return (
-            <td key={`${user.name}-row${this.state.row++}`} data={user.name} className="bg-dark text-light" onClick={this.logThis}>
+              <td key={`${user.name}-row${this.state.row++}`} data={user.name} value={user.name} name="commentAbout" className="bg-dark text-light review-option" onClick={this.props.logThis} data-toggle="modal" data-target="#meetingmodal">
             </td>
           )
           }

@@ -158,13 +158,13 @@ class App extends Component {
 							user={this.state.user} />} 
 						/>
 				<Route
-					exact path="/review"
+					path="/review"
 					render={() =>
 						<Review
 							user={this.state.user} />}
 				/>
 				<Route
-					exact path="/current"
+					path="/current"
 					render={() =>
 						<CurrentMeeting
 							user={this.state.user} />}

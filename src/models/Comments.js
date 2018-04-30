@@ -21,7 +21,7 @@ const commentSchema = new mongoose.Schema({
     },
     comment: {
         type: String,
-        require: true
+        require: false
     },
     tagArray: {
         type: Array,
