@@ -1,0 +1,4 @@
+.review-option:hover, .list-group-item-action:hover{
+  border-color: #007bff;
+  cursor: pointer;
+}
