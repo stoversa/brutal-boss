@@ -8,7 +8,7 @@ class MeetingDetail extends React.Component {
       meeting: "some value"
     };
   }
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
+  // When this component mounts, grab the meeting with the _id of this.props.match.params.id
   // e.g. localhost:3000/meetings/599dcb67f0f16317844583fc
   componentDidMount() {
     axios.get(this.props.match.params.id)

@@ -7,11 +7,17 @@ class MeetingMainMenu extends React.Component {
     this.state = {
       user: props.user,
       searchMeetingId: "",
+      searchResults: [],
       meetingID: "",
       createdBy: "",
       speaker: "",
       eventDate: "",
-      location: ""
+      location: "",
+      searchedMeetingId: "",
+      searchedCreatedBy: "",
+      searchedSpeaker: "",
+      searchedEventDate: "",
+      searchedLocation: ""
     };
   }
   onChange = (e) => {
@@ -21,26 +27,24 @@ class MeetingMainMenu extends React.Component {
   }
   onSubmit = (e) => {
     e.preventDefault();
-    if ( this.state.speaker && this.state.eventDate && this.state.location) {
-      this.setState({
-        isValid: true,
-        createdBy: "",
-        speaker: "",
-        eventDate: "",
-        location: ""
-      });
+    if ( this.state.speaker && this.state.eventDate && this.state.location ) {
       console.log(this.state)
       axios.post("/api/meetings", this.state)
         .then(res => this.setState({meetingID: res.data._id}))
-
         .catch(err => console.log(err));
-
     }
     else {
       this.setState({
         isValid: false
       });
     }
+    this.setState({
+      isValid: true,
+      createdBy: "",
+      speaker: "",
+      eventDate: "",
+      location: ""
+    });
   }
 
   onSearch = (e) => {
@@ -50,8 +54,15 @@ class MeetingMainMenu extends React.Component {
         isValid: true
       });
       axios.get("/api/meetings/" + this.state.searchMeetingId)
-        .then(res => console.log(res))
-        // .then(res => this.props.history.push("/meetings")) // redirect to home page
+        // .then(res => console.log(res))
+        .then(res => this.setState({
+          isValid: true,
+          searchedMeetingId: res.data._id,
+          searchedCreatedBy: res.data.createdBy,
+          searchedSpeaker: res.data.speaker,
+          searchedEventDate: res.data.eventDate,
+          searchedLocation: res.data.location
+        }))
         .catch(err => console.log(err));
     }
     else {
@@ -59,6 +70,7 @@ class MeetingMainMenu extends React.Component {
         isValid: false
       });
     }
+    console.log(this.state.searchResults);
   }
 
   render() {
@@ -84,14 +96,26 @@ class MeetingMainMenu extends React.Component {
                   </div>
                 </div>
               </div>
+              {this.state.searchedMeetingId ? (
+              <div className="col-sm-8">
+                
+                <div className="list-group-item list-group-item-action flex-column align-items-start">
+                  <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">{this.state.searchedLocation}</h5>
+                    <small className="text-muted">{this.state.searchedEventDate}</small>
+                  </div>
+                  <a href={"/current/" + this.state.searchedMeetingId}><strong>Join Meeting</strong></a>
+                  <p className="text-muted">Created by: {this.state.searchedCreatedBy}</p>
+                </div>
+              </div>) : (
+              <h3>No Results to Display</h3>
+            )}
             </div>
             <div className="col-sm-6">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">Create a Meeting</h5>
                   <form id="createMeetingForm">
-                    <div className="form-group">
-                    </div>
                     <div className="form-group">
                       <label htmlFor="createdBy">Created By</label>
                       <input 
