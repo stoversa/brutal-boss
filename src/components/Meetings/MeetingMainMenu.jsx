@@ -7,6 +7,7 @@ class MeetingMainMenu extends React.Component {
     this.state = {
       user: props.user,
       searchMeetingId: "",
+      meetingID: "",
       createdBy: "",
       speaker: "",
       eventDate: "",
@@ -30,8 +31,8 @@ class MeetingMainMenu extends React.Component {
       });
       console.log(this.state)
       axios.post("/api/meetings", this.state)
-        .then(res => console.log(res.data._id))
-        // .then(res => this.props.history.push("/")) // redirect to home page
+        .then(res => this.setState({meetingID: res.data._id}))
+
         .catch(err => console.log(err));
 
     }
@@ -139,6 +140,7 @@ class MeetingMainMenu extends React.Component {
                         placeholder="Location or Platform"
                       />
                     </div>
+                    <p>{this.state.meetingID}</p>
                     <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
                   </form>
                 </div>
