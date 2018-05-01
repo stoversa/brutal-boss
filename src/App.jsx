@@ -6,6 +6,7 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
+import MeetingDetail from "./components/Meetings/MeetingDetail";
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
 import Review from './components/Meetings/CurrentMeeting/Subcomponents/Review'
@@ -157,6 +158,10 @@ class App extends Component {
 						<MeetingStats 
 							user={this.state.user} />} 
 						/>
+				<Route 
+					exact path="/meetings/:id" 
+					component={MeetingDetail} 
+					/>
 				<Route
 					path="/review"
 					render={() =>
