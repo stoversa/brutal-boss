@@ -1,6 +1,7 @@
 import React from 'react'
 import Tableheader from "./Subcomponents/Tableheader"
 import Tablerow from "./Subcomponents/Tablerow"
+import Modal from "./Subcomponents/Modal"
 import axios from "axios";
 import './currentMeeting.css';
 
@@ -53,7 +54,10 @@ class Review extends React.Component {
     let qryVal = url.searchParams.get("id");
     if (qryVal) {
     axios.get("/api/meetings/" + qryVal)
-      .then(res => this.setState({ended: res.data.ended}))
+      .then(res => this.setState({
+        ended: res.data.ended,
+        meetingId: qryVal
+      }))
       // .then(res => this.props.history.push("/meetings")) // redirect to home page
       .catch(err => console.log(err));
     // this.setState({ mode });
@@ -74,7 +78,7 @@ class Review extends React.Component {
     });
   }
   
-  logThis = (event) => {
+  logThis = event => {
     this.setState({
       commentAbout: event.target.getAttribute('data'),
       commentBy: event.target.parentElement.getAttribute('data')
@@ -101,10 +105,52 @@ class Review extends React.Component {
       .catch(err => console.log(err));
   }
 
+  updateTd = () => {
+    let selected = document.getElementById("selected");
+    switch (this.state.rating) {
+      case '1':
+        selected.className.add("bg-danger");
+        break;
+      case '2':
+        selected.classList.add("bg-danger");
+        break;
+      case '3':
+        selected.classList.add("bg-warning");
+        break;
+      case '4':
+        selected.classList.add("bg-warning");
+        break;
+      case '5':
+        selected.classList.add("bg-light");
+        break;
+      case '6':
+        selected.classList.add("bg-info");
+        break;
+      case '7':
+        selected.classList.add("bg-info");
+        break;
+      case '8':
+        selected.classList.add("bg-info");
+        break;
+      case '9':
+        selected.classList.add("bg-danger");
+        break;
+      case '10':
+        selected.classList.add("bg-primary");
+        break;
+      default:
+        selected.classList.add("bg-primary");
+    }
+  }
+
   addComment = id => {
+    console.log("meetingid: " + this.state.meetingId);
     let update = { $push: { comments: id } }
-    axios.put(`/api/meetings/${this.state.meetingId}`, update)
-      .then(res => console.log(res))
+    axios.put("/api/meetings/" + this.state.meetingId, update)
+      .then(res => {
+        console.log(res);
+        this.updateTd();
+      })
       .catch(err => console.log(err));
   }
 
@@ -127,41 +173,7 @@ class Review extends React.Component {
               ))}
           </tbody>
         </table>
-          <div className="modal fade" id="meetingmodal" tabIndex="-1" role="dialog" aria-labelledby="meetingmodalTitle" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="meetingmodalTitle">Please provide a rating for {this.state.commentAbout}</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                 <div className="row">
-                  <div className="col-12">
-                    <div className="text-center">Rating</div>
-                    <ul className="list-group">
-                      <li className="text-center list-group-item list-group-item-action list-group-item-primary" value="10" onClick={this.recordRating}>10</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-primary" value="9" onClick={this.recordRating}>9</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-info" value="8" onClick={this.recordRating}>8</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-info" value="7" onClick={this.recordRating}>7</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-info" value="6" onClick={this.recordRating}>6</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-light" value="5" onClick={this.recordRating}>5</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-warning" value="4" onClick={this.recordRating}>4</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-warning" value="3" onClick={this.recordRating}>3</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-danger" value="2" onClick={this.recordRating}>2</li>
-                      <li className="text-center list-group-item list-group-item-action list-group-item-danger" value="1" onClick={this.recordRating}>1</li>
-                    </ul>
-                  </div>
-                 </div>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                  <button className="btn btn-outline-success btn-block" onClick={this.submitRating}>Submit</button>
-                </div>
-              </div>
-            </div>
-        </div>
+        <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating}/>
       </div>
     )
   } 
