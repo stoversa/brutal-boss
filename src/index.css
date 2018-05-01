@@ -2,4 +2,229 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: white;
+  background-image: url("images/wood_pattern1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+nav {
+  /* background-color: #145a8f; */
+  background-color: black;
+  width: 100%;
+  height: 52px;
+  z-index: 1;
+}
+
+/* =========================== Welcome user ========================== */
+.Header {
+  color: firebrick;
+  top: 17px;
+  right: 3%;
+  /* margin-left: 620px; */
+  /* width: 400px; */
+  /* margin-top: -36px; */
+  z-index: 100;
+  position: absolute;
+}
+
+/* =========================== jumbotron TITLE ========================= */
+.Home {
+  height: 200px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  background-color: white;
+  /* background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(253, 253, 253)); */
+  color: black;
+  /* background-image: url("images/wood_pattern1.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+h1 {
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  font-size: 50px;
+  color: black;
+  font-size: 50px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: .009em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+h2 {
+  margin: 20px;
+  font-size: 18px;
+  font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: .009em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  text-decoration: none;
+  margin: -15px 0px 15px;
+}
+
+
+li {
+  float: left;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+
+.boxes {
+   /* Box-model */
+   width: 100%;
+   /* max-width: 750px; */
+
+   /* Positioning */
+   margin: 0 auto;
+   clear: both;
+   text-align: center;
+   background-color: black;
+   margin-top: -20px;
+   margin-bottom: 40px;
+
+}
+
+
+
+.learnBox {
+  /* background-color: red; */
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 40px;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: white;
+  
+
+}
+
+.teachBox {
+  /* background-color: green; */
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 40px;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: white;
+  
+
+}
+
+.feelingsBox {
+  /* background-color: blue; */
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 40px;
+  padding: 20px;
+  margin-bottom: 10px;
+  color: white;
+
+}
+
+.grid{
+  /* Box-model */
+  width: 100%;
+  max-width: 860px;
+
+  /* Positioning */
+  margin: 0 auto;
+  clear: both;
+  text-align: center;
+}
+
+.teamMate { display: block;
+  max-width: 200px;
+  margin-bottom: 15px;
+  height: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  
+}
+
+.teamMate, img {
+  border-radius: 25px;
+  width: 90%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 550;
+ 
+}
+
+.teamMate img {
+  box-shadow: 5px 10px 8px black;
+ 
+}
+
+
+/********************** links *********************/
+a:link    {
+  /* Applies to all unvisited links */
+  text-decoration:  none;
+  } 
+a:visited {
+  /* Applies to all visited links */
+  text-decoration:  none;
+  
+  } 
+a:hover   {
+  /* Applies to links under the pointer */
+  text-decoration:  none;
+
+  } 
+a:active  {
+  /* Applies to activated links */
+  text-decoration:  none;
+  
+  } 
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+  }
+  
+  li a:hover:not(.active) {
+    color:  firebrick;
+  }
+
+footer {
+  background-color: black;
+  color: white;
+  margin-top: 40px;
+  height: 50px;
+  padding: 12px;
 }
