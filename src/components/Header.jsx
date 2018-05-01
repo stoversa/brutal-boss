@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
 // TODO - add proptypes
 
 const Header = props => {
+
 	let Greeting
 	if (props.user === null) {
 		Greeting = <p>Hello guest</p>
@@ -19,6 +20,7 @@ const Header = props => {
 		)
 	}
 	return (
+		
 		<div className="Header">
 			{Greeting}
 		</div>

@@ -12,6 +12,7 @@ import Review from './components/Meetings/Review'
 import CurrentMeeting from './components/Meetings/CurrentMeeting'
 import Chat from "./components/Chat/Chat";
 
+
 const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
@@ -61,6 +62,7 @@ const DisplayLinks = props => {
 					</li>
 				</ul>
 			</nav>
+			
 		)
 	}
 }
@@ -129,12 +131,15 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>Brutal Boss</h1>
-				<Header user={this.state.user} />
+			<Header user={this.state.user} />
+				{/* <h1>Brutal Boss</h1> */}
+				
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
+				
 				{/*  ROUTES */}
 				{/* <Route exact path="/" component={Home} /> */}
+				
 				<Route exact path="/" 
 					render={() => 
 						<Home 
@@ -175,9 +180,10 @@ class App extends Component {
 				/>
 				<Route exact path="/signup" component={SignupForm} />
 				{/* <LoginForm _login={this._login} /> */}
-				<div className="globalChat">
+				
+				{/* <div className="globalChat">
 					<Chat />
-				</div>
+				</div> */}
 			</div>
 		)
 	}
