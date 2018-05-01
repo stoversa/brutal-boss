@@ -6,11 +6,12 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
+import MeetingDetail from "./components/Meetings/MeetingDetail";
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
-import Review from './components/Meetings/Review'
-import CurrentMeeting from './components/Meetings/CurrentMeeting'
-import Chat from "./components/Chat/Chat";
+import Review from './components/Meetings/CurrentMeeting/Subcomponents/Review'
+import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting'
+// import Chat from "./components/Chat/Chat";
 
 
 const DisplayLinks = props => {
@@ -31,6 +32,11 @@ const DisplayLinks = props => {
 					<li>
 						<Link to="/meeting-stats" className="nav-link">
 							Meeting Stats
+						</Link>
+					</li>
+					<li>
+						<Link to="/current" className="nav-link">
+							Review Meeting
 						</Link>
 					</li>
 					<li>
@@ -157,14 +163,18 @@ class App extends Component {
 						<MeetingStats 
 							user={this.state.user} />} 
 						/>
+				<Route 
+					exact path="/meetings/:id" 
+					component={MeetingDetail} 
+					/>
 				<Route
-					exact path="/review"
+					path="/review"
 					render={() =>
 						<Review
 							user={this.state.user} />}
 				/>
 				<Route
-					exact path="/current"
+					path="/current"
 					render={() =>
 						<CurrentMeeting
 							user={this.state.user} />}
@@ -180,7 +190,6 @@ class App extends Component {
 				/>
 				<Route exact path="/signup" component={SignupForm} />
 				{/* <LoginForm _login={this._login} /> */}
-				
 				{/* <div className="globalChat">
 					<Chat />
 				</div> */}

@@ -2,29 +2,26 @@
 const mongoose = require("mongoose");
 
 const commentSchema = new mongoose.Schema({
-    commentId: {
-        type: String,
-        require: true
-    },
-    ratingNumber: {
+    rating: {
         type: Number,
         require: true
     },
-    commentedBy: {
+    commentBy: {
         type: String,
         require: true
     },
-    timestamps: {
-        createdAt: 'created_at',
+    commentAbout: {
+        type: String,
         require: true
     },
-    meetingId: {
-        type: String,
+    timestamp: {
+        type: Date, 
+        default: Date.now,
         require: true
     },
     comment: {
         type: String,
-        require: true
+        require: false
     },
     tagArray: {
         type: Array,

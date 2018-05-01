@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const meetingSchema = new mongoose.Schema({
-  meetingId: {
-    type: String,
-    require: true
-  },
   createdBy: {
     type: String,
     require: true
@@ -14,13 +10,22 @@ const meetingSchema = new mongoose.Schema({
     require: true
   },
   eventDate: {
-    type: String,
+    type: Date,
     require: true
   },
   location: {
     type: String,
     require: true
   },
+  comments: [{ 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Comments',
+    require: false }],
+  ended: {
+    type: Boolean,
+    require: true,
+    default: false
+  }
 });
 
 
