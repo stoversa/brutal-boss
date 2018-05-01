@@ -53,7 +53,10 @@ class Review extends React.Component {
     let qryVal = url.searchParams.get("id");
     if (qryVal) {
     axios.get("/api/meetings/" + qryVal)
-      .then(res => this.setState({ended: res.data.ended}))
+      .then(res => this.setState({
+        ended: res.data.ended,
+        meetingId: qryVal
+      }))
       // .then(res => this.props.history.push("/meetings")) // redirect to home page
       .catch(err => console.log(err));
     // this.setState({ mode });
@@ -102,8 +105,9 @@ class Review extends React.Component {
   }
 
   addComment = id => {
+    console.log("meetingid: " + this.state.meetingId);
     let update = { $push: { comments: id } }
-    axios.put(`/api/meetings/${this.state.meetingId}`, update)
+    axios.put("/api/meetings/" + this.state.meetingId, update)
       .then(res => console.log(res))
       .catch(err => console.log(err));
   }
@@ -157,7 +161,7 @@ class Review extends React.Component {
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                  <button className="btn btn-outline-success btn-block" onClick={this.submitRating}>Submit</button>
+                  <button className="btn btn-outline-success btn-block" onClick={this.submitRating} data-dismiss="modal">Submit</button>
                 </div>
               </div>
             </div>
