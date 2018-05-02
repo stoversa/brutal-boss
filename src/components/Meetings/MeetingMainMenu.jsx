@@ -5,21 +5,33 @@ class MeetingMainMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: props.user,
-      searchMeetingId: "",
-      searchResults: [],
-      meetingID: "",
+      user: "",
       createdBy: "",
-      speaker: "",
       eventDate: "",
       location: "",
       searchedMeetingId: "",
       searchedCreatedBy: "",
-      searchedSpeaker: "",
       searchedEventDate: "",
       searchedLocation: ""
     };
   }
+  componentDidMount() {
+		axios.get('/auth/user').then(response => {
+			console.log(response.data)
+			if (!!response.data.user) {
+				console.log('THERE IS A USER')
+				this.setState({
+					loggedIn: true,
+					user: response.data.user
+				})
+			} else {
+				this.setState({
+					loggedIn: false,
+					user: null
+				})
+			}
+		})
+	}
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -27,8 +39,11 @@ class MeetingMainMenu extends React.Component {
   }
   onSubmit = (e) => {
     e.preventDefault();
-    if ( this.state.speaker && this.state.eventDate && this.state.location ) {
-      console.log(this.state)
+    if ( this.state.eventDate && this.state.location ) {
+      this.setState({
+        isValid: true
+      });
+      console.log(this.state.user)
       axios.post("/api/meetings", this.state)
         .then(res => this.setState({meetingID: res.data._id}))
         .catch(err => console.log(err));
@@ -41,7 +56,6 @@ class MeetingMainMenu extends React.Component {
     this.setState({
       isValid: true,
       createdBy: "",
-      speaker: "",
       eventDate: "",
       location: ""
     });
@@ -54,12 +68,11 @@ class MeetingMainMenu extends React.Component {
         isValid: true
       });
       axios.get("/api/meetings/" + this.state.searchMeetingId)
-        // .then(res => console.log(res))
+        // .then(res => console.log(res))5ae9008a629a2e4b622030e2
         .then(res => this.setState({
           isValid: true,
           searchedMeetingId: res.data._id,
-          searchedCreatedBy: res.data.createdBy,
-          searchedSpeaker: res.data.speaker,
+          searchedCreatedBy: res.data._id,
           searchedEventDate: res.data.eventDate,
           searchedLocation: res.data.location
         }))
@@ -74,7 +87,7 @@ class MeetingMainMenu extends React.Component {
   }
 
   render() {
-    if (2) {
+    if (this.state.user) {
       return (
         <div className="MeetingMainMenu">
           <div className="row">
@@ -104,7 +117,7 @@ class MeetingMainMenu extends React.Component {
                     <h5 className="mb-1">{this.state.searchedLocation}</h5>
                     <small className="text-muted">{this.state.searchedEventDate}</small>
                   </div>
-                  <a href={"/current/" + this.state.searchedMeetingId}><strong>Join Meeting</strong></a>
+                  <a href={"/current/?id=" + this.state.searchedMeetingId}><strong>Join Meeting</strong></a>
                   <p className="text-muted">Created by: {this.state.searchedCreatedBy}</p>
                 </div>
               </div>) : (
@@ -123,21 +136,9 @@ class MeetingMainMenu extends React.Component {
                         className="form-control" 
                         name="createdBy" 
                         id="createdBy" 
-                        value={this.state.createdBy} 
+                        value={this.state.user._id} 
                         onChange={this.onChange} 
-                        placeholder="Grace" 
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="speakers">Speaker</label>
-                      <input 
-                        type="text" 
-                        className="form-control" 
-                        name="speaker" 
-                        id="speaker" 
-                        value={this.state.speaker} 
-                        onChange={this.onChange} 
-                        placeholder="John"
+                        placeholder={this.state.user.local.username} 
                       />
                     </div>
                     <div className="form-group">
