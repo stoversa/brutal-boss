@@ -22,18 +22,18 @@ const Home = props => {
 					<div className="row">
 						<div className="col-md-6 col-lg-4">
 							<div className="learnBox">
-								<a href="#"><p>Learn About Your Peers</p></a> 
+								<a><p>Learn About Your Peers</p></a> 
 							</div>
 						</div>
 						<div className="col-md-6 col-lg-4">
 							<div className="teachBox">
-							<a href="#"><p>Teach Your Peers About You</p></a> 
+							<a ><p>Teach Your Peers About You</p></a> 
 								
 							</div>
 						</div>
 						<div className="col-md-6 col-lg-4">
 							<div className="feelingsBox">
-							<a href="#"><p>Get Your Feelings Hurt</p></a> 
+							<a ><p>Get Your Feelings Hurt</p></a> 
 								
 							</div>
 						</div>
@@ -82,10 +82,10 @@ const Home = props => {
 				</section>
 
 
-				<footer class="page-footer font-small blue pt-4 mt-4">
-					<div class="footer-copyright py-3 text-center">
+				<footer className="page-footer font-small blue pt-4 mt-4">
+					<div className="footer-copyright py-3 text-center">
 						© 2018 Copyright:
-       				 <a href="#"> The Cool Kids </a>
+       				 <a> The Cool Kids </a>
 					</div>
 				</footer>
 
