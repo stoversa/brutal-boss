@@ -164,7 +164,7 @@ class App extends Component {
 							user={this.state.user} />} 
 						/>
 				<Route 
-					exact path="/meetings/:id" 
+					exact path="/meeting-details" 
 					component={MeetingDetail} 
 					/>
 				<Route
