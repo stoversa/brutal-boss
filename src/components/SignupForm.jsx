@@ -6,6 +6,10 @@ class SignupForm extends Component {
 	constructor() {
 		super()
 		this.state = {
+			firstName: '',
+			lastName: '',
+			email: '',
+			photos: '',
 			username: '',
 			password: '',
 			confirmPassword: '',
@@ -46,28 +50,96 @@ class SignupForm extends Component {
 		return (
 			<div className="SignupForm">
 				<h1>Signup form</h1>
-				<label htmlFor="username">Username: </label>
-				<input
-					type="text"
-					name="username"
-					value={this.state.username}
-					onChange={this.handleChange}
-				/>
-				<label htmlFor="password">Password: </label>
-				<input
-					type="password"
-					name="password"
-					value={this.state.password}
-					onChange={this.handleChange}
-				/>
-				<label htmlFor="confirmPassword">Confirm Password: </label>
-				<input
-					type="password"
-					name="confirmPassword"
-					value={this.state.confirmPassword}
-					onChange={this.handleChange}
-				/>
-				<button onClick={this.handleSubmit}>Sign up</button>
+				<form>
+						<div className="form-row">
+							<div className="form-group col-md-3">
+								<label htmlFor="firstName">First Name: </label>
+								<input
+									type="text"
+									className="form-control"
+									id="inputFirstName"
+									placeholder="First Name"
+									name="firstName"
+									value={this.state.firstName}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className="form-group col-md-3">
+								<label htmlFor="lastName">Last Name: </label>
+								<input
+									type="text"
+									className="form-control"
+									id="inputLastName"
+									placeholer="Last Name"
+									name="lastName"
+									value={this.state.lastName}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className="form-group col-md-3">
+								<label htmlFor="email">Email: </label>
+								<input
+									type="email"
+									className="form-control"
+									id="inputEmail"
+									placeholder="Email"
+									name="email"
+									value={this.state.email}
+									onChange={this.handleChange}
+								/>
+							</div>
+						</div>
+						<div className="form-rom">
+							<div className="form-group col-md-2">
+								<label className="custom-file-label" htmlFor="photos">Add Photo for Profile Picture: </label>
+								<input
+									type="file"
+									className="custom-file-input"
+									id="customFile"
+									name="photos"
+									value={this.state.photos}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className="form-group col-md-2">
+								<label htmlFor="username">Username: </label>
+								<input
+									type="text"
+									className="form-control"
+									id="inputUsername"
+									placeholder="Username"
+									name="username"
+									value={this.state.username}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className="form-group col-md-2">
+								<label htmlFor="password">Password: </label>
+								<input
+									type="password"
+									className="form-control"
+									id="inputPassword"
+									placeholder="Password"
+									name="password"
+									value={this.state.password}
+									onChange={this.handleChange}
+								/>
+							</div>
+							<div className="form-group col-md-2">
+								<label htmlFor="password">Confirm Password: </label>
+								<input
+									type="password"
+									className="form-control"
+									id="inputPassword"
+									placeholder="Password"
+									name="password"
+									value={this.state.password}
+									onChange={this.handleChange}
+								/>
+							</div>
+						</div>
+								<button className="btn btn-primary" type="submit"onClick={this.handleSubmit}>Sign up</button>
+				</form>
 			</div>
 		)
 	}
