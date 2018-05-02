@@ -12,14 +12,13 @@ class MeetingMainMenu extends React.Component {
       searchedMeetingId: "",
       searchedCreatedBy: "",
       searchedEventDate: "",
-      searchedLocation: ""
+      searchedLocation: "",
+      returnedResults: false
     };
   }
   componentDidMount() {
 		axios.get('/auth/user').then(response => {
-			console.log(response.data)
 			if (!!response.data.user) {
-				console.log('THERE IS A USER')
 				this.setState({
 					loggedIn: true,
 					user: response.data.user
@@ -63,20 +62,22 @@ class MeetingMainMenu extends React.Component {
 
   onSearch = (e) => {
     e.preventDefault();
-    if (this.state.searchMeetingId) {
+    if (this.state.searchedMeetingId) {
       this.setState({
         isValid: true
       });
-      axios.get("/api/meetings/" + this.state.searchMeetingId)
+      axios.get("/api/meetings/" + this.state.searchedMeetingId)
         // .then(res => console.log(res))5ae9008a629a2e4b622030e2
         .then(res => this.setState({
-          isValid: true,
+          returnedResults: true,
           searchedMeetingId: res.data._id,
           searchedCreatedBy: res.data._id,
           searchedEventDate: res.data.eventDate,
           searchedLocation: res.data.location
         }))
-        .catch(err => console.log(err));
+        .catch(err => this.setState({
+          returnedResults: false
+        }));
     }
     else {
       this.setState({
@@ -99,9 +100,9 @@ class MeetingMainMenu extends React.Component {
                     <input 
                       type="text" 
                       className="form-control" 
-                      name="searchMeetingId" 
-                      id="searchMeetingId" 
-                      value={this.state.searchMeetingId} 
+                      name="searchedMeetingId" 
+                      id="searchedMeetingId" 
+                      value={this.state.searchedMeetingId} 
                       onChange={this.onChange} 
                       placeholder="ABC123@" 
                     />
@@ -109,7 +110,7 @@ class MeetingMainMenu extends React.Component {
                   </div>
                 </div>
               </div>
-              {this.state.searchedMeetingId ? (
+              {this.state.returnedResults ? (
               <div className="col-sm-8">
                 
                 <div className="list-group-item list-group-item-action flex-column align-items-start">
