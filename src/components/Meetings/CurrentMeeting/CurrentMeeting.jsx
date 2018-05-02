@@ -169,7 +169,7 @@ class Review extends React.Component {
           </thead>
           <tbody>
               {this.state.availableUsers.map(user => (
-              <Tablerow name={user.name} photo={user.photo} availableUsers={this.state.availableUsers} logThis={this.logThis}/>
+              <Tablerow key={user.name+"row"} name={user.name} photo={user.photo} availableUsers={this.state.availableUsers} logThis={this.logThis}/>
               ))}
           </tbody>
         </table>
