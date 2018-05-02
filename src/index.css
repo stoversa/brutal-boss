@@ -170,7 +170,8 @@ li {
   
 }
 
-.teamMate, img {
+.teamMate
+.img-fluid {
   border-radius: 25px;
   width: 90%;
   height: auto;
@@ -181,7 +182,8 @@ li {
  
 }
 
-.teamMate img {
+.teamMate
+.img-fluid {
   box-shadow: 5px 10px 8px black;
  
 }
