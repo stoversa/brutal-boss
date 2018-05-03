@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
-import {Bar, Line, Pie} from 'react-chartjs-2';
-
+import {Bar} from 'react-chartjs-2';
 
 
 class MeetingDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      meetingId: "",
+      ended: "",
       charData: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
         datasets: [{
@@ -25,25 +26,36 @@ class MeetingDetail extends React.Component {
   // When this component mounts, grab the meeting with the _id of this.props.match.params.id
   // e.g. localhost:3000/meetings/599dcb67f0f16317844583fc
   componentDidMount() {
-    axios.get(this.props.match.params.id)
+    let url = new URL (window.location.href);
+    let qryVal = url.searchParams.get("id");
+    if (qryVal) {
+    axios.get("/api/meetings/" + qryVal)
       .then(res => console.log(res))
-      // .then(res => this.setState({ meeting: res.data }))
+      // .then(res => this.setState({
+        
+      //   ended: res.data.ended,
+      //   meetingId: qryVal
+      // }))
+      // .then(res => this.props.history.push("/meetings")) // redirect to home page
       .catch(err => console.log(err));
+    // this.setState({ mode });
+    }
+    else {
+      console.log("Not active meeting");
+    };
+    console.log(this.state.ended);
   }
 
   render() {
     return (
-        <div className="MeetingDetails">
+        <div className="chart">
           <div className="row">
             <div className="col-sm-6">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Join a Meeting</h5>
+                  <h5 className="card-title">Meeting Results</h5>
                   <Bar
                     data={this.state.charData}
-                    options={{
-                      maintainAspectRatio: false
-                    }}
                   />
               </div>
             </div>
