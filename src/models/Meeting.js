@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const meetingSchema = new mongoose.Schema({
   createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
+    type: String,
     require: true
   },
   speaker: {
