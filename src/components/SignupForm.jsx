@@ -29,7 +29,11 @@ class SignupForm extends Component {
 		axios
 			.post('/auth/signup', {
 				username: this.state.username,
-				password: this.state.password
+				password: this.state.password,
+				firstName: this.state.firstName,
+				lastName: this.state.lastName,
+				email: this.state.email,
+				photos: this.state.photos
 			})
 			.then(response => {
 				console.log(response)
