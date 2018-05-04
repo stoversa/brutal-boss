@@ -9,18 +9,9 @@ class MeetingDetail extends React.Component {
     this.state = {
       meetingId: "",
       ended: "",
-      charData: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-        datasets: [{
-          label: "Dataset #1",
-          backgroundColor: "rgba(255,99,132,0.2)",
-          borderColor: "rgba(255,99,132,1)",
-          borderWidth: 2,
-          hoverBackgroundColor: "rgba(255,99,132,0.4)",
-          hoverBorderColor: "rgba(255,99,132,1)",
-          data: [65, 59, 20, 81, 56, 55, 40],
-        }]
-      }
+      resLabel: [],
+      resData: [],
+      charData: {}
     };
   }
   // When this component mounts, grab the meeting with the _id of this.props.match.params.id
@@ -30,13 +21,27 @@ class MeetingDetail extends React.Component {
     let qryVal = url.searchParams.get("id");
     if (qryVal) {
     axios.get("/api/meetings/" + qryVal)
-      .then(res => console.log(res))
-      // .then(res => this.setState({
-        
-      //   ended: res.data.ended,
-      //   meetingId: qryVal
-      // }))
-      // .then(res => this.props.history.push("/meetings")) // redirect to home page
+      .then(res => {
+        const comments = res.data.comments;
+        comments.map(comment =>{
+          this.setState({ resData: [...this.state.resData, comment.rating] })
+        })
+        comments.map(comment => {
+          this.setState({ resLabel: [...this.state.resLabel, comment.timestamp] })
+        })
+        this.setState({charData:{
+          labels: this.state.resLabel,
+          datasets: [{
+            label: "Dataset #1",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 2,
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: this.state.resData,
+          }]
+        }})
+      })
       .catch(err => console.log(err));
     // this.setState({ mode });
     }
