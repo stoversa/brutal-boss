@@ -153,6 +153,15 @@ class Review extends React.Component {
       .catch(err => console.log(err));
   }
 
+  endMeeting = id => {
+    let update = { ended: true }
+    axios.put("/api/meetings/" + this.state.meetingId, update)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  }
+
   render () {
     if (this.props.user && !this.state.ended) {
     return (
@@ -160,7 +169,7 @@ class Review extends React.Component {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th><a className="btn btn-primary" href={"/meeting-stats/?id=" + this.state.meetingId}>End Meeting</a></th>
+              <th><a className="btn btn-primary" href={"/meeting-stats/?id=" + this.state.meetingId} onClick={this.endMeeting}>End Meeting</a></th>
               {this.state.availableUsers.map(user => (
                 <Tableheader name={user.name} photo={user.photo} key={user.name+"header"}/>
               ))}
