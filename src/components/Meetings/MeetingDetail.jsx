@@ -41,9 +41,6 @@ class MeetingDetail extends React.Component {
                   <h5 className="card-title">Join a Meeting</h5>
                   <Bar
                     data={this.state.charData}
-                    options={{
-                      maintainAspectRatio: false
-                    }}
                   />
               </div>
             </div>
