@@ -68,11 +68,9 @@ const DisplayLinks = props => {
 					</li>
 				</ul>
 			</nav>
-			
 		)
 	}
 }
-
 
 class App extends Component {
 	constructor() {
