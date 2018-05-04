@@ -25,7 +25,7 @@ class MeetingDetail extends React.Component {
   }
   // When this component mounts, grab the meeting with the _id of this.props.match.params.id
   // e.g. localhost:3000/meetings/599dcb67f0f16317844583fc
-  componentDidMount() {
+  componentWillMount() {
     let url = new URL (window.location.href);
     let qryVal = url.searchParams.get("id");
     if (qryVal) {

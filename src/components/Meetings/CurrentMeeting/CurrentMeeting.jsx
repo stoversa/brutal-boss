@@ -149,7 +149,6 @@ class Review extends React.Component {
     axios.put("/api/meetings/" + this.state.meetingId, update)
       .then(res => {
         console.log(res);
-        this.updateTd();
       })
       .catch(err => console.log(err));
   }
