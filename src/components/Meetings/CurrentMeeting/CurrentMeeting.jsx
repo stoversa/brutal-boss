@@ -169,7 +169,7 @@ class Review extends React.Component {
         <table className="table table-bordered">
           <thead>
             <tr>
-              <th><a className="btn btn-primary" href={"/meeting-stats/?id=" + this.state.meetingId} onClick={this.endMeeting}>End Meeting</a></th>
+              <th><a className="btn btn-primary" href={"/meeting-details/?id=" + this.state.meetingId} onClick={this.endMeeting}>End Meeting</a></th>
               {this.state.availableUsers.map(user => (
                 <Tableheader name={user.name} photo={user.photo} key={user.name+"header"}/>
               ))}
