@@ -44,16 +44,6 @@ server = app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })
 
-io = socket(server);
-
-io.on("connection", (socket) => {
-	console.log(socket.id);
-
-	socket.on("SEND_MESSAGE", function(data) {
-		io.emit("RECIEVE_MESSAGE", data);
-	})
-});
-
 // ===== Passport ====
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
