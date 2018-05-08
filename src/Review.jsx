@@ -57,6 +57,8 @@ class Review extends React.Component {
     if (this.props.user) {
     return (
       <div className="container-fluid bg-light">
+
+      {/* buttons and title */}
         <div className="row">
           <div className="col-xl-1 col-md-2">
             <button type="button" className="btn btn-outline-secondary btn-block">Cancel</button>
@@ -68,7 +70,10 @@ class Review extends React.Component {
             <button className="btn btn-outline-success btn-block">Submit</button>
           </div>
         </div>
+       {/* buttons and title */}
+
         <div className="row">
+          {/* user */}
           <div className="col-xl-2 col-md-3 text-light bg-secondary">
             <input className="form-control" type="text" placeholder="Search" />
             <ul className="list-group list-group-flush text-light bg-secondary">
@@ -81,6 +86,7 @@ class Review extends React.Component {
               
             </ul>
           </div>
+
           <div className="col-xl-9 col-md-7 bg-white">
             <div className="row">
               <form className="col-12 bg-light">
@@ -89,6 +95,7 @@ class Review extends React.Component {
                 </div>
               </form>
             </div>
+            
             <div className="row">
               <div className="col-4 text-left">
                 Sample Terms go here
@@ -105,7 +112,8 @@ class Review extends React.Component {
                 <br />Excepteur sint occaecat cupidatat non proident,
                 <br />sunt in culpa qui officia deserunt
                 <br /> mollit anim id est laborum
-        </div>
+              </div>
+
               <div className="col-4 text-left">
                 And here
                 <br />Lorem ipsum dolor sit amet,
@@ -121,7 +129,8 @@ class Review extends React.Component {
                 <br />Excepteur sint occaecat cupidatat non proident,
                 <br />sunt in culpa qui officia deserunt
                 <br /> mollit anim id est laborum
-        </div>
+              </div>
+
               <div className="col-4 text-left">
                 And here
                 <br />Lorem ipsum dolor sit amet,
@@ -137,8 +146,9 @@ class Review extends React.Component {
                 <br />Excepteur sint occaecat cupidatat non proident,
                 <br />sunt in culpa qui officia deserunt
                 <br /> mollit anim id est laborum
-        </div>
-            </div>
+              </div>
+
+          </div>
             <div className="row">
               <form className="col-12 bg-light">
                 <div className="form-group">

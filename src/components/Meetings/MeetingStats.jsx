@@ -4,9 +4,15 @@ import React from 'react'
 const MeetingStats = props => {
   if (props.user) {
     return (
+      <div>
+        <div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
       <div className="MeetingStats">
-        <h2>Meeting Stats</h2>
-        <p>{props.user.local.username} here is a list of your meetings.</p>
+      <div className="title">
+          <h2>Meeting Stats</h2>
+          <p>{props.user.local.username} here is a list of your meetings.</p>
+        </div>
         <br />
         <br />
         <div className="container-fluid">
@@ -145,12 +151,37 @@ const MeetingStats = props => {
           </div>
         </div>
       </div>
+
+      <footer class="page-footer font-small blue">
+					<div class="footer-copyright text-center">
+						© 2018 Copyright:
+       				 <a href="#"> The Cool Kids </a>
+					</div>
+				</footer>
+
+      </div>
     )
   } else {
     return (
-      <div className="MeetingStats">
+      <div>
+				<div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
+				<div className="loggedOut">
+					<h1> WELCOME to Brutal Boss </h1>
+					<br />
+					<div className="MeetingStats">
         <p>Sorry, you really need to be logged in for this page.</p>
       </div>
+				</div>
+				<footer className="homeFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a> The Cool Kids </a>
+					</div>
+				</footer>
+			</div>
+      
     )
   }
 }
