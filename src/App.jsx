@@ -12,62 +12,99 @@ import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
 import Review from './components/Meetings/CurrentMeeting/Subcomponents/Review'
 import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting'
 import Chat from "./components/Chat/Chat";
+import { slide as Menu } from 'react-burger-menu';
 
+class Example extends React.Component {
+	showSettings(event) {
+		event.preventDefault();
+
+	}
+
+	render() {
+		return (
+			<Menu>
+				<a className="menu-item" href="/">Home</a>
+				<a className="menu-item" href="/meetings">Meeting</a>
+				<a className="menu-item" href="/meeting-stats">Meeting Stats</a>
+				<a className="menu-item" href="/contact">Logout</a>
+			</Menu>
+		);
+	}
+}
 
 const DisplayLinks = props => {
 	if (props.loggedIn) {
 		return (
-			<nav className="navbar">
-				<ul className="nav">
-					<li className="nav-item">
-						<Link to="/" className="nav-link">
-							Home
-						</Link>
-					</li>
-					<li>
-						<Link to="/meetings" className="nav-link">
-							Meeting
-						</Link>
-					</li>
-					<li>
-						<Link to="/meeting-stats" className="nav-link">
-							Meeting Stats
-						</Link>
-					</li>
-					<li>
-						<Link to="/current" className="nav-link">
-							Review Meeting
-						</Link>
-					</li>
-					<li>
-						<Link to="#" className="nav-link" onClick={props._logout}>
-							Logout
-						</Link>
-					</li>
-				</ul>
-			</nav>
+
+			<Menu>
+				<a className="menu-item" href="/">Home</a>
+				<a className="menu-item" href="/meetings">Meeting</a>
+				<a className="menu-item" href="/meeting-stats">Meeting Stats</a>
+				<a className="menu-item" href="/Review">Review Meeting</a>
+				<a className="menu-item" onClick={props._logout}>Logout</a>
+			</Menu>
+
+			// <nav className="navbar">
+			// 	<ul className="nav">
+			// 		<li className="nav-item">
+			// 			<Link to="/" className="nav-link">
+			// 				Home
+			// 			</Link>
+			// 		</li>
+			// 		<li>
+			// 			<Link to="/meetings" className="nav-link">
+			// 				Meeting
+			// 			</Link>
+			// 		</li>
+			// 		<li>
+			// 			<Link to="/meeting-stats" className="nav-link">
+			// 				Meeting Stats
+			// 			</Link>
+			// 		</li>
+			// 		<li>
+			// 			<Link to="/current" className="nav-link">
+			// 				Review Meeting
+			// 			</Link>
+			// 		</li>
+			// 		<li>
+			// 			<Link to="#" className="nav-link" onClick={props._logout}>
+			// 				Logout
+			// 			</Link>
+			// 		</li>
+			// 	</ul>
+			// </nav>
 		)
 	} else {
 		return (
-			<nav className="navbar">
-				<ul className="nav">
-					<li className="nav-item">
-						<Link to="/" className="nav-link">
-							Home
-						</Link>
-					</li>
-					<li className="nav-item">
-						<Link to="/login" className="nav-link">
-							login
-						</Link>
-					</li>
-					<li className="nav-item">
-						<Link to="/signup" className="nav-link">
-							sign up
-						</Link>
-					</li>
-				</ul>
-			</nav>
+
+			<div>
+				<Menu>
+					<a className="menu-item" href="/">Home</a>
+					<a className="menu-item" href="/login">Login</a>
+					<a className="menu-item" href="/signup">Sign Up</a>
+				</Menu>
+			</div>
+
+
+			// <nav className="navbar">
+			// 	<ul className="nav">
+			// 		<li className="nav-item">
+			// 			<Link to="/" className="nav-link">
+			// 				Home
+			// 			</Link>
+			// 		</li>
+			// 		<li className="nav-item">
+			// 			<Link to="/login" className="nav-link">
+			// 				login
+			// 			</Link>
+			// 		</li>
+			// 		<li className="nav-item">
+			// 			<Link to="/signup" className="nav-link">
+			// 				sign up
+			// 			</Link>
+			// 		</li>
+			// 	</ul>
+			// </nav>
 		)
 	}
 }

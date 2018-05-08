@@ -10,37 +10,31 @@ body {
 }
 
 
-nav {
-  /* background-color: #145a8f; */
+/* nav {
   background-color: black;
   width: 100%;
   height: 52px;
   z-index: 1;
-}
+} */
 
 /* =========================== Welcome user ========================== */
 .Header {
   color: firebrick;
-  top: 17px;
+  top: 39px;
   right: 3%;
-  /* margin-left: 620px; */
-  /* width: 400px; */
-  /* margin-top: -36px; */
   z-index: 100;
   position: absolute;
 }
 
 /* =========================== jumbotron TITLE ========================= */
 .Home {
-  height: 200px;
+  height: 80px;
   padding-top: 40px;
   margin-bottom: 20px;
   background-color: white;
-  /* background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(253, 253, 253)); */
+  text-align: left;
   color: black;
-  /* background-image: url("images/wood_pattern1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover; */
+
 }
 
 body {
@@ -51,14 +45,14 @@ body {
 
 
 h1 {
-  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-  font-size: 50px;
-  color: black;
-  font-size: 50px;
+  font-size: 38px;
+    color: black;
     line-height: 1;
     font-weight: 600;
     letter-spacing: .009em;
     font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    margin-top: -17px;
+    margin-left: 16px;
 }
 
 h2 {
@@ -91,15 +85,12 @@ li {
 
 
 .boxes {
-   /* Box-model */
    width: 100%;
-   /* max-width: 750px; */
-
-   /* Positioning */
+   max-width: 960px;
    margin: 0 auto;
    clear: both;
    text-align: center;
-   background-color: black;
+   /* background-color: black; */
    margin-top: -20px;
    margin-bottom: 40px;
 
@@ -108,7 +99,7 @@ li {
 
 
 .learnBox {
-  /* background-color: red; */
+  background-color: black;
   width: 200px;
   height: 80px;
   text-align: center;
@@ -122,7 +113,7 @@ li {
 }
 
 .teachBox {
-  /* background-color: green; */
+  background-color: black;
   width: 200px;
   height: 80px;
   text-align: center;
@@ -136,7 +127,7 @@ li {
 }
 
 .feelingsBox {
-  /* background-color: blue; */
+  background-color: black;
   width: 200px;
   height: 80px;
   text-align: center;
@@ -148,6 +139,7 @@ li {
 
 }
 
+/* ======================= TEAM ======================= */
 .grid{
   /* Box-model */
   width: 100%;
@@ -165,13 +157,12 @@ li {
   height: 200px;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   color: white;
   
 }
 
-.teamMate
-.img-fluid {
+.teamMatePic {
   border-radius: 25px;
   width: 90%;
   height: auto;
@@ -179,15 +170,14 @@ li {
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: 550;
- 
-}
-
-.teamMate
-.img-fluid {
   box-shadow: 5px 10px 8px black;
  
 }
 
+.teamMatePic p {
+  font-weight: 300;
+ 
+}
 
 /********************** links *********************/
 a:link    {
@@ -223,10 +213,227 @@ a:active  {
     color:  firebrick;
   }
 
+
+/* ======================= MEETING STATS ======================= */
+
+.MeetingStats table {
+  background-color:rgba(255, 255, 255, 0.75);
+}
+
+.title {
+  background-color: black;
+  width: 300px;
+  border-radius: 25px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.MeetingStats p {
+  color: firebrick;
+  font-weight: 500;
+}
+
+.MeetingStats h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* ======================= MEETING MAIN MENU ======================= */
+/* create or join a meeting */
+
+.MeetingMainMenu .card {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgba(255, 255, 255, 0.75)
+}
+
+/* ======================= LOGIN ======================= */
+.marginLoginForm {
+  margin-top: 100px;
+}
+
+.marginLoginForm h1 {
+  margin-bottom: 30px;
+  color: white;
+}
+
+.marginLoginForm label {
+  margin: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.marginLoginForm button {
+  margin-left: 10px;
+}
+
+.loggedOut {
+  position: absolute;
+  top: 250px;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.loggedOut h1 {
+  color: white;
+}
+
+/* ======================= side hamburger menu for react.js ======================= */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  left: 246px;
+  top: 33px;
+}
+ 
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+ 
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+ 
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+ 
+/* General sidebar styles */
+.bm-menu {
+  /* background: rgba(0, 0, 0, 0.7); */
+  background-color: black;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  text-align: left;
+}
+ 
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.bm-item-list a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+ 
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ======================= nav ======================= */
+
+nav {
+  text-align: left;
+}
+
+/* nav {
+  background-color: black;
+  width: 100%;
+  height: 52px;
+} */
+
+/* ======================= REVIEW ======================= */
+.bg-white {
+  background-color: #fff!important;
+  margin: 0 auto;
+}
+
+/* people on review page  */
+peopleList{
+  padding-right: 20px;
+}
+
+.search {
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  background-color: black;
+  background-image: none;
+  border-color: #6c757d;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  background-color: black;
+  background-image: none;
+  border-color: #28a745;
+}
+
+.reviewText {
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 50px;
+  font-size: 30px;
+  background-color: black;
+  border-radius: 25px;
+  padding: 15px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* ======================= FOOTER ======================= */
 footer {
   background-color: black;
+  width: 100%;
   color: white;
-  margin-top: 40px;
-  height: 50px;
-  padding: 12px;
+  margin-top: 70px;
+  height: 60px;
+  padding: 20px;
+  position: static;
+  bottom: 0px;
 }
+
+.homeFooter {
+  background-color: black;
+  width: 100%;
+  color: white;
+  margin-top: 70px;
+  height: 60px;
+  padding: 6px;
+  position: static;
+  bottom: 0px;
+}
+
+.logoutFooter {
+  background-color: black;
+  width: 100%;
+  color: white;
+  margin-top: 70px;
+  height: 60px;
+  padding: 6px;
+  position: absolute;
+  bottom: 0px;
+}
+

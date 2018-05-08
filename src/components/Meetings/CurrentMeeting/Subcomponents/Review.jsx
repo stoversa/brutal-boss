@@ -1,70 +1,98 @@
 import React from 'react'
-import axios from 'axios';
+// TODO - add proptypes
 
 class Review extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      meetingId: "5ae216695497bc3276368b83",
-      commentBy: "?",
-      commentAbout: "?",
+      userSelected: "",
       rating: "",
-      comment: ""
+      comment: "",
+      availableUsers: [
+        {
+          userId: 1,
+          name: "Tony"
+        },
+        {
+          userId: 2,
+          name: "Dawn"
+        },
+        {
+          userId: 3,
+          name: "Greg"
+        },
+        {
+          userId: 4,
+          name: "Ryan"
+        },
+        {
+          userId: 5,
+          name: "Jess"
+        },
+        {
+          userId: 6,
+          name: "Sam"
+        }]
     }
 
     this.handleChange = this.handleChange.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  }
+//eventually make this state
 
-    recordRating = event =>{
-      this.setState({rating: event.target.value});
-      console.log(this.state.rating);
-    }
 
-    handleChange = event => {
-      // Getting the value and name of the input which triggered the change
-      let value = event.target.value;
-      const name = event.target.name;
-      console.log(value);
-      // Updating the input's state
-      this.setState({
-        [name]: value
-      });
-    }
+  handleChange = event => {
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
 
-    submitRating = event => {
-      axios.post("/api/comments", this.state)
-        .then(res => {
-          console.log(res.data._id);
-          this.addComment(res.data._id);
-        })
-        .catch(err => console.log(err));
-    }
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  }
 
-    addComment = id => {
-      let url = `/api/meetings/${this.state.meetingId}`;
-      let update = { $push: { comments: id } }
-      axios.put(url, update)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }
-
-  render ()  {
+  render () {
+    if (this.props.user) {
     return (
-      <div className="container-fluid bg-light">
+      <div>
+         <div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
+      <div className="container-fluid">
+
         <div className="row">
+
           <div className="col-xl-1 col-md-2">
             <button type="button" className="btn btn-outline-secondary btn-block">Cancel</button>
           </div>
           <div className="col-xl-10 col-md-8 d-none d-sm-block">
+
+          <div className="reviewText">
             <h3 className="text-center">Create a New Review</h3>
           </div>
+
+        </div>
+
           <div className="col-xl-1 col-md-2">
-            <button className="btn btn-outline-success btn-block" onClick={this.submitRating}>Submit</button>
+            <button className="btn btn-outline-success btn-block">Submit</button>
           </div>
+          
         </div>
         <div className="row">
+          <div className="peopleList col-xl-2 col-md-3 text-light bg-secondary">
+            <input className="search" type="text" placeholder="Search" />
+            <ul className="list-group list-group-flush text-light bg-secondary">
+              {this.state.availableUsers.map(user => (
+                <li className="list-group-item list-group-item-action text-light bg-secondary text-left">
+                  <img src={user.photo || "http://via.placeholder.com/20x20"} className="rounded-circle" alt={user.name} width="30" height="30" />
+                  <span>&nbsp;{user.name}</span>
+                </li>
+              ))}
+              
+            </ul>
+          </div>
           <div className="col-xl-9 col-md-7 bg-white">
             <div className="row">
               <form className="col-12 bg-light">
@@ -126,7 +154,7 @@ class Review extends React.Component {
             <div className="row">
               <form className="col-12 bg-light">
                 <div className="form-group">
-                  <input type="text" value={this.state.value} onChange={this.handleChange} className="form-control" id="commentHelp" name="comment" aria-describedby="commentHelp" placeholder="Comment here" />
+                  <input type="text" value={this.state.value} onChange={this.handleInputChange} className="form-control" id="exampleInputEmail1" name="comment" aria-describedby="commentHelp" placeholder="Comment here" />
                   <small id="commentHelp" className="form-text text-muted" >Input your comment here</small>
                 </div>
               </form>
@@ -135,22 +163,43 @@ class Review extends React.Component {
           <div className="col-xl-1 col-md-2">
             <div className="text-center">Rating</div>
             <ul className="list-group">
-              <li className="text-center list-group-item list-group-item-action list-group-item-primary" value="10" onClick={this.recordRating}>10</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-primary" value="9" onClick={this.recordRating}>9</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-info" value="8" onClick={this.recordRating}>8</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-info" value="7" onClick={this.recordRating}>7</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-info" value="6" onClick={this.recordRating}>6</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-light" value="5" onClick={this.recordRating}>5</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-warning" value="4" onClick={this.recordRating}>4</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-warning" value="3" onClick={this.recordRating}>3</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-danger" value="2" onClick={this.recordRating}>2</li>
-              <li className="text-center list-group-item list-group-item-action list-group-item-danger" value="1" onClick={this.recordRating}>1</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-primary">10</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-primary">9</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-info">8</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-info">7</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-info">6</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-light">5</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-warning">4</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-warning">3</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-danger">2</li>
+              <li className="text-center list-group-item list-group-item-action list-group-item-danger">1</li>
             </ul>
           </div>
         </div>
+        <footer className="homeFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a> The Cool Kids </a>
+					</div>
+				</footer>
+      </div>
+      </div>
+    )
+  } else {
+    return (
+      <div>
+      <div className="Review">
+        <p>Sorry, you really need to be logged in for this page.</p>
+      </div>
+      <footer className="homeFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a> The Cool Kids </a>
+					</div>
+				</footer>
       </div>
     )
   }
 }
-
+}
 export default Review;

@@ -90,6 +90,10 @@ class MeetingMainMenu extends React.Component {
   render() {
     if (this.state.user) {
       return (
+        <div>
+          <div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
         <div className="MeetingMainMenu">
           <div className="row">
             <div className="col-sm-6">
@@ -173,6 +177,7 @@ class MeetingMainMenu extends React.Component {
               </div>
             </div>
           </div>
+        </div>
         </div>
       )
     } else {

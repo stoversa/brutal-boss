@@ -182,20 +182,45 @@ class Review extends React.Component {
           </tbody>
         </table>
         <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating}/>
+        <footer className="homeFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a> The Cool Kids </a>
+					</div>
+				</footer>
       </div>
     )
   } 
   else if (this.state.ended){
     return (
+      <div>
+         <div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
       <div className="Review">
         <p>This meeting is currently unavailable or has ended. Please contact your meeting coordinator if you feel this is an error</p>
+      </div>
+      <footer className="homeFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a> The Cool Kids </a>
+					</div>
+				</footer>
       </div>
     )
   }
   else {
     return (
+      <div>
       <div className="Review">
         <p>Sorry, you really need to be logged in for this page.</p>
+      </div>
+      <footer className="homeFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a> The Cool Kids </a>
+					</div>
+				</footer>
       </div>
     )
   }
