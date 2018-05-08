@@ -403,6 +403,15 @@ peopleList{
   margin: 0 auto;
 }
 
+/* ======================= meeting details ======================= */
+.meetingResults {
+  margin: 0 auto;
+  max-width: 600px;
+  height: 700px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 /* ======================= FOOTER ======================= */
 footer {
   background-color: black;
