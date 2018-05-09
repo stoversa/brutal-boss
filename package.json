@@ -34,7 +34,7 @@
 		"nodemon": "^1.17.4"
 	},
 	"scripts": {
-		"start": "concurrently 'yarn run react' 'yarn run server' 'yarn run app'",
+		"start": "NODE_ENV=\"production\" && concurrently 'yarn run react' 'yarn run server' 'yarn run app'",
 		"react": "react-scripts start",
 		"server": "node server/server.js",
 		"app": "node backend/app.js",
