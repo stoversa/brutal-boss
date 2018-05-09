@@ -1,11 +1,11 @@
-var express = require('express');
-var socket = require('socket.io');
+const express = require('express');
+const socket = require('socket.io');
 
-var app = express();
+const app = express();
 
 
 server = app.listen(5000, function(){
-    console.log('server is running on port 5000')
+    console.log('server is running on port 5000');
 });
 
 io = socket(server);
@@ -15,6 +15,6 @@ io.on('connection', (socket) => {
 
     socket.on('SEND_MESSAGE', function(data){
         io.emit('RECEIVE_MESSAGE', data);
-    })
+    });
 });
 
