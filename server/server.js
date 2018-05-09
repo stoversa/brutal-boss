@@ -40,23 +40,23 @@ app.use(
 )
 
 // ==== Starting Server =====
-// server = app.listen(PORT, () => {
-// 	console.log(`App listening on PORT: ${PORT}`)
-// })
+server = app.listen(PORT, () => {
+	console.log(`App listening on PORT: ${PORT}`)
+})
 
-server = app.listen(process.env.PORT || 8080, function(){
-    console.log('server is running on port 8080');
-});
+// server = app.listen(process.env.PORT || 8080, function(){
+//     console.log('server is running on port 8080');
+// });
 
-io = socket(server);
+// io = socket(server);
 
-io.on('connection', (socket) => {
-    console.log(socket.id);
+// io.on('connection', (socket) => {
+//     console.log(socket.id);
 
-    socket.on('SEND_MESSAGE', function(data){
-        io.emit('RECEIVE_MESSAGE', data);
-    });
-});
+//     socket.on('SEND_MESSAGE', function(data){
+//         io.emit('RECEIVE_MESSAGE', data);
+//     });
+// });
 
 
 // ===== Passport ====
