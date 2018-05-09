@@ -36,8 +36,8 @@
 	"scripts": {
 		"start": "export NODE_ENV=\"production\" && concurrently 'yarn run react' 'yarn run server' 'yarn run app'",
 		"react": "react-scripts start",
-		"server": "nodemon server/server.js",
-		"app": "nodemon backend/app.js",
+		"server": "node server/server.js",
+		"app": "node backend/app.js",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject",
