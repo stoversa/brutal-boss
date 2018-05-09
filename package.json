@@ -44,5 +44,8 @@
 		"dev": "concurrently \"react-scripts start\" \"nodemon server/server.js\" \"nodemon backend/app.js\"",
 		"prod": "concurrently \"react-scripts start\" \"nodemon server/server.js\" \"nodemon backend/app.js\""
 	},
+	"engines": {
+        "node": "9.11.1"
+    },
 	"proxy": "http://localhost:8080"
 }
