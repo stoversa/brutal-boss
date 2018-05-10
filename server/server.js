@@ -19,6 +19,7 @@ const commentRoutes = require("../src/controllers/routes/commentsAPI");
 const path = require("path");
 const passport = require('./passport');
 const app = express();
+const router = express.Router();
 // const http = require('http').Server(app);
 const socket = require("socket.io");
 const PORT = process.env.PORT || 8080;
@@ -95,9 +96,12 @@ if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
 	console.log('YOU ARE IN THE PRODUCTION ENV')
 	app.use('/static', express.static(path.join(__dirname, '../build/static')))
-	app.get('/', (req, res) => {
-		res.sendFile(path.join(__dirname, '../build/'))
-	})
+	// app.get('/', (req, res) => {
+	// 	res.sendFile(path.join(__dirname, '../build/'))
+	// })
+	router.get('/', function(req, res, next) {  
+          res.status(200).send("Hi, It works!")  
+    }); 
 }
 
 /* Express app ROUTING */
