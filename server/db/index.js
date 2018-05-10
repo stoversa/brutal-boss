@@ -2,28 +2,26 @@
 * - this is where we set up our connection to the mongo database
 */
 
-const mongoose = require("mongoose");
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mern-passport";
+// const mongoose = require("mongoose");
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mern-passport";
 
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
-
-// should mongoose.connection be put in the call back of mongoose.connect???
-let db = mongoose.connection
-db.on('error', err => {
-	console.log(`There was an error connecting to the database: ${err}`)
-})
-db.once('open', () => {
-	console.log(
-		"You have successfully connected to your mongo database: mern-passport"
-	);
-});
-
-module.exports = db
+// mongoose.Promise = global.Promise;
+// mongoose.connect(MONGODB_URI, {
+//   useMongoClient: true
+// });
 
 
+// let db = mongoose.connection
+// db.on('error', err => {
+// 	console.log(`There was an error connecting to the database: ${err}`)
+// })
+// db.once('open', () => {
+// 	console.log(
+// 		"You have successfully connected to your mongo database: mern-passport"
+// 	);
+// });
+
+// module.exports = db
 
 
 
@@ -35,7 +33,9 @@ module.exports = db
 
 
 
-/*
+
+
+
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 let MONGO_URL
@@ -61,4 +61,3 @@ db.once('open', () => {
 })
 
 module.exports = db
-*/
