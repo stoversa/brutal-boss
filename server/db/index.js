@@ -11,7 +11,7 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // should mongoose.connection be put in the call back of mongoose.connect???
-const db = mongoose.connection
+let db = mongoose.connection
 db.on('error', err => {
 	console.log(`There was an error connecting to the database: ${err}`)
 })
