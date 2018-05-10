@@ -19,7 +19,7 @@ const commentRoutes = require("../src/controllers/routes/commentsAPI");
 const path = require("path");
 const passport = require('./passport');
 const app = express();
-const http = require('http').Server(app);
+// const http = require('http').Server(app);
 const socket = require("socket.io");
 const PORT = process.env.PORT || 8080;
 
@@ -27,10 +27,10 @@ const PORT = process.env.PORT || 8080;
 app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
-		extended: false
+		extended: true
 	})
-)
-app.use(bodyParser.json())
+);
+app.use(bodyParser.json());
 app.use(
 	session({
 		secret: process.env.APP_SECRET || 'this is the default passphrase',
@@ -41,9 +41,9 @@ app.use(
 )
 
 // ==== Starting Server =====
-// server = app.listen(PORT, () => {
-// 	console.log(`App listening on PORT: ${PORT}`)
-// })
+server = app.listen(PORT, () => {
+	console.log(`App listening on PORT: ${PORT}`)
+})
 
 
 
@@ -117,9 +117,9 @@ app.use("/api/comments", commentRoutes);
 
 
 
-http.listen(process.env.PORT  || 8080, function(){
-	console.log('listening on :8080');
-});
+// http.listen(process.env.PORT  || 8080, function(){
+// 	console.log('listening on :8080');
+// });
 
 
 
