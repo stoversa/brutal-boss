@@ -65,7 +65,7 @@ const Home = props => {
 				</section>
 
 
-				<footer className="homeFooter font-small blue">
+				<footer className="staticFooter font-small blue">
 					<div className="footer-copyright py-3 text-center">
 						© 2018 Copyright:
        				 <a> The Cool Kids </a>
@@ -113,7 +113,7 @@ const Home = props => {
 						</div>
 					</section>
 				</div>
-				<footer className="homeFooter font-small blue">
+				<footer className="absoluteFooter font-small blue">
 					<div className="footer-copyright py-3 text-center">
 						© 2018 Copyright:
        				 <a> The Cool Kids </a>

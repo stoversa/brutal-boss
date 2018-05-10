@@ -52,9 +52,14 @@ class SignupForm extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
-			<div className="SignupForm">
-				<h1>Signup form</h1>
-				<form>
+			<div>
+
+				<div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
+				<div className="SignupForm">
+					<h1>Signup form</h1>
+					<form>
 						<div className="form-row">
 							<div className="form-group col-md-3">
 								<label htmlFor="firstName">First Name: </label>
@@ -142,8 +147,15 @@ class SignupForm extends Component {
 								/>
 							</div>
 						</div>
-								<button className="btn btn-primary" type="submit"onClick={this.handleSubmit}>Sign up</button>
-				</form>
+						<button className="btn btn-primary" type="submit" onClick={this.handleSubmit}>Sign up</button>
+					</form>
+				</div>
+				<footer className="absoluteFooter font-small blue">
+					<div className="footer-copyright py-3 text-center">
+						© 2018 Copyright:
+       				 <a className="coolKids"> The Cool Kids </a>
+					</div>
+				</footer>
 			</div>
 		)
 	}
