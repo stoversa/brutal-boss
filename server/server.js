@@ -106,7 +106,6 @@ app.use(function(err, req, res, next) {
 	res.status(500)
 })
 
-
 // Add API Routes
 app.use("/api/meetings", meetingRoutes);
 app.use("/api/comments", commentRoutes);
