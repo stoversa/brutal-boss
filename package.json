@@ -34,6 +34,10 @@
 	"devDependencies": {
 		"nodemon": "^1.17.4"
 	},
+	"engines": {
+        "node": "9.10.1",
+        "yarn": "1.5.1"
+  },
 	"scripts": {
 		"start": "export NODE_ENV=\"production\" && concurrently 'yarn run server' 'yarn run react'",
 		"server": "node server/server.js",
