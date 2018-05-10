@@ -42,28 +42,23 @@ app.use(
 )
 
 // ==== Starting Server =====
-server = app.listen(PORT, () => {
-	console.log(`App listening on PORT: ${PORT}`)
-})
+// server = app.listen(PORT, () => {
+// 	console.log(`App listening on PORT: ${PORT}`)
+// })
 
+server = app.listen(process.env.PORT || 8080, () => {
+	console.log(`App listening on PORT: ${PORT}`);
+});
 
+io = socket(server);
 
+io.on('connection', (socket) => {
+    console.log(socket.id);
 
-
-// server = app.listen(process.env.PORT || 8080, function(){
-//     console.log('server is running on port 8080');
-// });
-
-// io = socket(server);
-
-// io.on('connection', (socket) => {
-//     console.log(socket.id);
-
-//     socket.on('SEND_MESSAGE', function(data){
-//         io.emit('RECEIVE_MESSAGE', data);
-//     });
-// });
-
+    socket.on('SEND_MESSAGE', function(data){
+        io.emit('RECEIVE_MESSAGE', data);
+    });
+});
 
 // ===== Passport ====
 app.use(passport.initialize())
@@ -115,14 +110,4 @@ app.use(function(err, req, res, next) {
 // Add API Routes
 app.use("/api/meetings", meetingRoutes);
 app.use("/api/comments", commentRoutes);
-
-
-
-// http.listen(process.env.PORT  || 8080, function(){
-// 	console.log('listening on :8080');
-// });
-
-
-
-
 
