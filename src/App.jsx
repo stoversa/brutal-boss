@@ -44,35 +44,6 @@ const DisplayLinks = props => {
 				<a className="menu-item" onClick={props._logout}>Logout</a>
 			</Menu>
 
-			// <nav className="navbar">
-			// 	<ul className="nav">
-			// 		<li className="nav-item">
-			// 			<Link to="/" className="nav-link">
-			// 				Home
-			// 			</Link>
-			// 		</li>
-			// 		<li>
-			// 			<Link to="/meetings" className="nav-link">
-			// 				Meeting
-			// 			</Link>
-			// 		</li>
-			// 		<li>
-			// 			<Link to="/meeting-stats" className="nav-link">
-			// 				Meeting Stats
-			// 			</Link>
-			// 		</li>
-			// 		<li>
-			// 			<Link to="/current" className="nav-link">
-			// 				Review Meeting
-			// 			</Link>
-			// 		</li>
-			// 		<li>
-			// 			<Link to="#" className="nav-link" onClick={props._logout}>
-			// 				Logout
-			// 			</Link>
-			// 		</li>
-			// 	</ul>
-			// </nav>
 		)
 	} else {
 		return (
@@ -84,27 +55,6 @@ const DisplayLinks = props => {
 					<a className="menu-item" href="/signup">Sign Up</a>
 				</Menu>
 			</div>
-
-
-			// <nav className="navbar">
-			// 	<ul className="nav">
-			// 		<li className="nav-item">
-			// 			<Link to="/" className="nav-link">
-			// 				Home
-			// 			</Link>
-			// 		</li>
-			// 		<li className="nav-item">
-			// 			<Link to="/login" className="nav-link">
-			// 				login
-			// 			</Link>
-			// 		</li>
-			// 		<li className="nav-item">
-			// 			<Link to="/signup" className="nav-link">
-			// 				sign up
-			// 			</Link>
-			// 		</li>
-			// 	</ul>
-			// </nav>
 		)
 	}
 }

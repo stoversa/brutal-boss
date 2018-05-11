@@ -171,10 +171,10 @@ const MeetingStats = props => {
 					<h1> WELCOME to Brutal Boss </h1>
 					<br />
 					<div className="MeetingStats">
-        <p>Sorry, you really need to be logged in for this page.</p>
+        <p className="sorry">Sorry, you really need to be logged in for this page.</p>
       </div>
 				</div>
-				<footer className="homeFooter font-small blue">
+				<footer className="absoluteFooter font-small blue">
 					<div className="footer-copyright py-3 text-center">
 						© 2018 Copyright:
        				 <a> The Cool Kids </a>

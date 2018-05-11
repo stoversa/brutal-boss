@@ -213,6 +213,18 @@ a:active  {
     color:  firebrick;
   }
 
+/* ======================= sign up form ======================= */
+
+.SignupForm {
+  margin-top: 30px;
+}
+
+.SignupForm label {
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
 
 /* ======================= MEETING STATS ======================= */
 
@@ -339,17 +351,23 @@ a:active  {
   background: rgba(0, 0, 0, 0.3);
 }
 
+/* ======================= current meeting ======================= */
+
+.centerTable {
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.tableBG {
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+
 /* ======================= nav ======================= */
 
 nav {
   text-align: left;
 }
-
-/* nav {
-  background-color: black;
-  width: 100%;
-  height: 52px;
-} */
 
 /* ======================= REVIEW ======================= */
 .bg-white {
@@ -358,8 +376,40 @@ nav {
 }
 
 /* people on review page  */
-peopleList{
+.peopleList{
   padding-right: 20px;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.rating {
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.rating li {
+  margin-left: 0;
+  border-radius: 10px;
+}
+
+.rowMargin{
+  margin-top: 20px;
+}
+
+.bg-title {
+  background-color: #f8f9fa!important;
+  position: absolute;
+  bottom: 0px;
+  margin-top: 20px;
+  /* max-width: 960px;
+  margin: 0 auto; */
+}
+
+.smallColumn {
+  padding-left: 35px;
 }
 
 .search {
@@ -403,7 +453,36 @@ peopleList{
   margin: 0 auto;
 }
 
-/* ======================= FOOTER ======================= */
+/* ======================= meeting details ======================= */
+.meetingResults {
+  margin: 0 auto;
+  max-width: 600px;
+  height: 700px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.meetingResultsTitle {
+  background-color: black;
+  border-radius: 25px;
+  color: white;
+  font-weight: 700;
+  padding: 15px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* ======================= logouts ======================= */
+.sorry {
+  background-color: black;
+  padding: 15px;
+  border-radius: 15px;
+  width: 400px;
+  margin: 0 auto;
+  color: firebrick;
+}
+
+/* ======================= FOOTERS ======================= */
 footer {
   background-color: black;
   width: 100%;
@@ -415,7 +494,8 @@ footer {
   bottom: 0px;
 }
 
-.homeFooter {
+/* home page */
+.staticFooter {
   background-color: black;
   width: 100%;
   color: white;
@@ -426,7 +506,8 @@ footer {
   bottom: 0px;
 }
 
-.logoutFooter {
+/* logout page */
+.absoluteFooter {
   background-color: black;
   width: 100%;
   color: white;
@@ -436,4 +517,17 @@ footer {
   position: absolute;
   bottom: 0px;
 }
+
+.coolKids a:active {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.coolKids a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+  
 

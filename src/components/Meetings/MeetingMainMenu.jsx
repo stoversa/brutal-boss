@@ -178,12 +178,34 @@ class MeetingMainMenu extends React.Component {
             </div>
           </div>
         </div>
+
+        <footer className="absoluteFooter font-small blue">
+            <div className="footer-copyright py-3 text-center">
+              © 2018 Copyright:
+       				 <a className="coolKids"> The Cool Kids </a>
+            </div>
+          </footer>
         </div>
       )
     } else {
       return (
+        <div>
+          
+          <div className="Home">
+					<h1> Brutal Boss </h1>
+				</div>
         <div className="MeetingMainMenu">
-          <p>Sorry, you really need to be <a href="/">logged in</a> for this page.</p>
+        <br/>
+          <h1> Join or Create a Meeting </h1>
+          <br/>
+          <p className="sorry">Sorry, you really need to be <a href="/">logged in</a> for this page.</p>
+        </div>
+        <footer className="absoluteFooter font-small blue">
+            <div className="footer-copyright py-3 text-center">
+              © 2018 Copyright:
+       				 <a className="coolKids"> The Cool Kids </a>
+            </div>
+          </footer>
         </div>
       )
     }

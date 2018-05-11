@@ -46,21 +46,21 @@ class Review extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
   }
-//eventually make this state
+  //eventually make this state
 
   componentWillMount() {
-    
-    let url = new URL (window.location.href);
+
+    let url = new URL(window.location.href);
     let qryVal = url.searchParams.get("id");
     if (qryVal) {
-    axios.get("/api/meetings/" + qryVal)
-      .then(res => this.setState({
-        ended: res.data.ended,
-        meetingId: qryVal
-      }))
-      // .then(res => this.props.history.push("/meetings")) // redirect to home page
-      .catch(err => console.log(err));
-    // this.setState({ mode });
+      axios.get("/api/meetings/" + qryVal)
+        .then(res => this.setState({
+          ended: res.data.ended,
+          meetingId: qryVal
+        }))
+        // .then(res => this.props.history.push("/meetings")) // redirect to home page
+        .catch(err => console.log(err));
+      // this.setState({ mode });
     }
     else {
       console.log("Not active meeting");
@@ -77,7 +77,7 @@ class Review extends React.Component {
       [name]: value
     });
   }
-  
+
   logThis = event => {
     this.setState({
       commentAbout: event.target.getAttribute('data'),
@@ -162,68 +162,82 @@ class Review extends React.Component {
       .catch(err => console.log(err));
   }
 
-  render () {
+  render() {
     if (this.props.user && !this.state.ended) {
-    return (
-      <div className="table-responsive col-11">
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th><a className="btn btn-primary" href={"/meeting-details/?id=" + this.state.meetingId} onClick={this.endMeeting}>End Meeting</a></th>
-              {this.state.availableUsers.map(user => (
-                <Tableheader name={user.name} photo={user.photo} key={user.name+"header"}/>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-              {this.state.availableUsers.map(user => (
-              <Tablerow key={user.name+"row"} name={user.name} photo={user.photo} availableUsers={this.state.availableUsers} logThis={this.logThis}/>
-              ))}
-          </tbody>
-        </table>
-        <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating}/>
-        <footer className="homeFooter font-small blue">
-					<div className="footer-copyright py-3 text-center">
-						© 2018 Copyright:
+      return (
+        <div>
+          <div className="Home">
+            <h1> Brutal Boss </h1>
+          </div>
+          <div className="centerTable">
+            <div className="table-responsive col-12">
+              <table className="tableBG table table-bordered">
+                <thead>
+                  <tr>
+                    <th><a className="btn btn-primary" href={"/meeting-details/?id=" + this.state.meetingId} onClick={this.endMeeting}>End Meeting</a></th>
+                    {this.state.availableUsers.map(user => (
+                      <Tableheader name={user.name} photo={user.photo} key={user.name + "header"} />
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.availableUsers.map(user => (
+                    <Tablerow key={user.name + "row"} name={user.name} photo={user.photo} availableUsers={this.state.availableUsers} logThis={this.logThis} />
+                  ))}
+                </tbody>
+              </table>
+              <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating} />
+            </div>
+          </div>
+
+          <footer className="absoluteFooter font-small blue">
+            <div className="footer-copyright py-3 text-center">
+              © 2018 Copyright:
+       				 <a className="coolKids"> The Cool Kids </a>
+            </div>
+          </footer>
+        </div>
+      )
+    }
+    else if (this.state.ended) {
+      return (
+        <div>
+          <div className="Home">
+            <h1> Brutal Boss </h1>
+          </div>
+          <div className="Review">
+            <p>This meeting is currently unavailable or has ended. Please contact your meeting coordinator if you feel this is an error</p>
+          </div>
+          <footer className="homeFooter font-small blue">
+            <div className="footer-copyright py-3 text-center">
+              © 2018 Copyright:
        				 <a> The Cool Kids </a>
-					</div>
-				</footer>
-      </div>
-    )
-  } 
-  else if (this.state.ended){
-    return (
-      <div>
-         <div className="Home">
-					<h1> Brutal Boss </h1>
-				</div>
-      <div className="Review">
-        <p>This meeting is currently unavailable or has ended. Please contact your meeting coordinator if you feel this is an error</p>
-      </div>
-      <footer className="homeFooter font-small blue">
-					<div className="footer-copyright py-3 text-center">
-						© 2018 Copyright:
+            </div>
+          </footer>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div>
+           <div className="Home">
+            <h1> Brutal Boss </h1>
+          </div>
+          <div className="Review">
+          <br/>
+          <h1> Current Meeting </h1>
+          <br/>
+            <p className="sorry">Sorry, you really need to be logged in for this page.</p>
+          </div>
+          <footer className="absoluteFooter font-small blue">
+            <div className="footer-copyright py-3 text-center">
+              © 2018 Copyright:
        				 <a> The Cool Kids </a>
-					</div>
-				</footer>
-      </div>
-    )
+            </div>
+          </footer>
+        </div>
+      )
+    }
   }
-  else {
-    return (
-      <div>
-      <div className="Review">
-        <p>Sorry, you really need to be logged in for this page.</p>
-      </div>
-      <footer className="homeFooter font-small blue">
-					<div className="footer-copyright py-3 text-center">
-						© 2018 Copyright:
-       				 <a> The Cool Kids </a>
-					</div>
-				</footer>
-      </div>
-    )
-  }
-}
 }
 export default Review;
