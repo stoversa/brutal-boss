@@ -19,6 +19,8 @@ const commentRoutes = require("../src/controllers/routes/commentsAPI");
 const path = require("path");
 const passport = require('./passport');
 const app = express();
+// const router = express.Router();
+// const http = require('http').Server(app);
 const socket = require("socket.io");
 const PORT = process.env.PORT || 8080;
 
@@ -26,10 +28,10 @@ const PORT = process.env.PORT || 8080;
 app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
-		extended: false
+		extended: true
 	})
-)
-app.use(bodyParser.json())
+);
+app.use(bodyParser.json());
 app.use(
 	session({
 		secret: process.env.APP_SECRET || 'this is the default passphrase',
@@ -40,9 +42,23 @@ app.use(
 )
 
 // ==== Starting Server =====
-server = app.listen(PORT, () => {
-	console.log(`App listening on PORT: ${PORT}`)
-})
+// server = app.listen(PORT, () => {
+// 	console.log(`App listening on PORT: ${PORT}`)
+// })
+
+server = app.listen(process.env.PORT || 8080, () => {
+	console.log(`App listening on PORT: ${PORT}`);
+});
+
+io = socket(server);
+
+io.on('connection', (socket) => {
+    console.log(socket.id);
+
+    socket.on('SEND_MESSAGE', function(data){
+        io.emit('RECEIVE_MESSAGE', data);
+    });
+});
 
 // ===== Passport ====
 app.use(passport.initialize())
@@ -90,8 +106,7 @@ app.use(function(err, req, res, next) {
 	res.status(500)
 })
 
-
-
 // Add API Routes
 app.use("/api/meetings", meetingRoutes);
 app.use("/api/comments", commentRoutes);
+

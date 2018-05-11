@@ -50,6 +50,12 @@ Meeting Page Structure
         |-- Join a Meeting
             |-- input for meeting ID
 
+Getting Started Heroku link:
 
+https://pure-springs-46918.herokuapp.com/
+
+Learn more about Facebook's GitHub create-react-app:
+
+https://github.com/facebook/create-react-app
 
 

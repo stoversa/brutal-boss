@@ -139,7 +139,7 @@ class SignupForm extends Component {
 								<input
 									type="password"
 									className="form-control"
-									id="inputPassword"
+									id="inputPasswordConfirm"
 									placeholder="Password"
 									name="password"
 									value={this.state.password}
