@@ -104,7 +104,7 @@ app.use(function(err, req, res, next) {
 	console.log('====== ERROR =======')
 	console.error(err.stack)
 	res.status(500)
-})
+});
 
 // Add API Routes
 app.use("/api/meetings", meetingRoutes);
