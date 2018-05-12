@@ -39,7 +39,7 @@
         "yarn": "1.5.1"
   },
 	"scripts": {
-		"start": "export NODE_ENV=\"production\" && concurrently 'yarn run server' 'yarn run react'",
+		"start": "export NODE_ENV=\"production\" && concurrently 'yarn run server' 'npm run react'",
 		"server": "node server/server.js",
 		"react": "react-scripts start",
 		"app": "node backend/app.js",
