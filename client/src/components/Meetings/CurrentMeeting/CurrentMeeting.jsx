@@ -115,43 +115,43 @@ class Review extends React.Component {
       .catch(err => console.log(err));
   }
 
-  updateTd = () => {
-    let selected = document.getElementById("selected");
-    switch (this.state.rating) {
-      case '1':
-        selected.className.add("bg-danger");
-        break;
-      case '2':
-        selected.classList.add("bg-danger");
-        break;
-      case '3':
-        selected.classList.add("bg-warning");
-        break;
-      case '4':
-        selected.classList.add("bg-warning");
-        break;
-      case '5':
-        selected.classList.add("bg-light");
-        break;
-      case '6':
-        selected.classList.add("bg-info");
-        break;
-      case '7':
-        selected.classList.add("bg-info");
-        break;
-      case '8':
-        selected.classList.add("bg-info");
-        break;
-      case '9':
-        selected.classList.add("bg-danger");
-        break;
-      case '10':
-        selected.classList.add("bg-primary");
-        break;
-      default:
-        selected.classList.add("bg-primary");
-    }
-  }
+  // updateTd = () => {
+  //   let selected = document.getElementById("selected");
+  //   switch (this.state.rating) {
+  //     case '1':
+  //       selected.className.add("bg-danger");
+  //       break;
+  //     case '2':
+  //       selected.classList.add("bg-danger");
+  //       break;
+  //     case '3':
+  //       selected.classList.add("bg-warning");
+  //       break;
+  //     case '4':
+  //       selected.classList.add("bg-warning");
+  //       break;
+  //     case '5':
+  //       selected.classList.add("bg-light");
+  //       break;
+  //     case '6':
+  //       selected.classList.add("bg-info");
+  //       break;
+  //     case '7':
+  //       selected.classList.add("bg-info");
+  //       break;
+  //     case '8':
+  //       selected.classList.add("bg-info");
+  //       break;
+  //     case '9':
+  //       selected.classList.add("bg-danger");
+  //       break;
+  //     case '10':
+  //       selected.classList.add("bg-primary");
+  //       break;
+  //     default:
+  //       selected.classList.add("bg-primary");
+  //   }
+  // }
 
   addComment = id => {
     console.log("meetingid: " + this.state.meetingId);
