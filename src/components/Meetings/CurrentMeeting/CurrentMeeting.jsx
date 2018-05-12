@@ -186,7 +186,7 @@ class Review extends React.Component {
                   ))}
                 </tbody>
               </table>
-              <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating} />
+              <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating} handleChange={this.handleChange}/>
             </div>
           </div>
 
