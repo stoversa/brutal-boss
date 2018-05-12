@@ -4,6 +4,9 @@
   "private": true,
   "proxy": "http://localhost:8080/",
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
+    "@fortawesome/react-fontawesome": "^0.0.18",
     "chart.js": "^2.7.2",
     "react": "^15.6.2",
     "react-bootstrap": "^0.32.1",
