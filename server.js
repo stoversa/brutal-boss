@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.static("client/build"))
 
-// ===== Middleware ====
+// ===== Middleware ==== 
 app.use(morgan('dev'))
 
 // Body Parser
