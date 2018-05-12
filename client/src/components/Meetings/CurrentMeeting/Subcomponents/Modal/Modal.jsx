@@ -19,16 +19,16 @@ class Modal extends React.Component {
                 <div>
                   <div className="btn-group btn-group-toggle" data-toggle="buttons">
                     <label className="btn btn-secondary active">
-                      <input type="radio" name="tagArray" value="Preparation" id="option1" autocomplete="off" checked /> General
+                      <input type="radio" name="tagArray" value="Preparation" id="option1" /> General
                   </label>
                     <label className="btn btn-secondary">
-                      <input type="radio" name="tagArray" value="Preparation" id="option1" autocomplete="off" /> Preparation
+                      <input type="radio" name="tagArray" value="Preparation" id="option1"  /> Preparation
                   </label>
                     <label className="btn btn-secondary">
-                      <input type="radio" name="tagArray" value="Organization" id="option2" autocomplete="off" /> Organization
+                      <input type="radio" name="tagArray" value="Organization" id="option2"  /> Organization
                   </label>
                     <label className="btn btn-secondary">
-                      <input type="radio" name="tagArray" value="Time Management" id="option3" autocomplete="off" /> Time Mgmt
+                      <input type="radio" name="tagArray" value="Time Management" id="option3"  /> Time Mgmt
                   </label>
                   </div>
                 </div>

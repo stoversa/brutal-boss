@@ -11,7 +11,7 @@ import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
 import Review from './components/Meetings/CurrentMeeting/Subcomponents/Review'
 import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting'
-// import Chat from "./components/Chat/Chat";
+import Chat from "./components/Chat/Chat";
 import { slide as Menu } from 'react-burger-menu';
 
 
@@ -106,13 +106,8 @@ class App extends Component {
 		return (
 			<div className="App">
 			<Header user={this.state.user} />
-				{/* <h1>Brutal Boss</h1> */}
-				
-				{/* LINKS to our different 'pages' */}
+
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
-				
-				{/*  ROUTES */}
-				{/* <Route exact path="/" component={Home} /> */}
 				
 				<Route exact path="/" 
 					render={() => 
@@ -157,10 +152,10 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
-				{/* <LoginForm _login={this._login} /> */}
-				{/* <div className="globalChat">
+
+				<div className="globalChat">
 					<Chat />
-				</div> */}
+				</div>
 			</div>
 		)
 	}
