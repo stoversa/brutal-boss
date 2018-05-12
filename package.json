@@ -1,53 +1,39 @@
 {
-	"name": "react-template",
-	"version": "0.1.0",
-	"private": true,
-	"main": "server/server.js",
-	"dependencies": {
-		"axios": "^0.16.2",
-		"bcrypt": "^1.0.2",
-		"bcryptjs": "^2.4.3",
-		"body-parser": "^1.17.2",
-		"chart.js": "^2.7.2",
-		"concurrently": "^3.5.1",
-		"connect-mongo": "^1.3.2",
-		"dotenv": "^4.0.0",
-		"express": "^4.15.3",
-		"express-session": "^1.15.4",
-		"mongoose": "^4.11.4",
-		"morgan": "^1.8.2",
-		"passport": "^0.3.2",
-		"passport-google-oauth": "^1.0.0",
-		"passport-google-oauth20": "^1.0.0",
-		"passport-local": "^1.0.0",
-		"react": "^15.6.2",
-		"react-bootstrap": "^0.32.1",
-		"react-burger-menu": "^2.4.4",
-		"react-chartjs-2": "^2.7.2",
-		"react-dom": "^15.6.2",
-		"react-router-dom": "^4.1.2",
-		"react-scripts": "*",
-		"save": "^2.3.2",
-		"socket.io": "^2.1.0",
-		"socket.io-client": "^2.1.0"
-	},
-	"devDependencies": {
-		"nodemon": "^1.17.4"
-	},
-	"engines": {
-        "node": "9.10.1",
-        "yarn": "1.5.1"
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn"
   },
-	"scripts": {
-		"start": "export NODE_ENV=\"production\" && concurrently 'yarn run server' 'yarn run react'",
-		"server": "node server/server.js",
-		"react": "react-scripts start",
-		"app": "node backend/app.js",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"eject": "react-scripts eject",
-		"dev": "concurrently \"react-scripts start\" \"nodemon server/server.js",
-		"prod": "export NODE_ENV=\"production\" concurrently \"react-scripts start\" \"nodemon server/server.js"
-	},
-	"proxy": "http://localhost:8080"
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bcrypt": "^1.0.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "chart.js": "^2.7.2",
+    "connect-mongo": "^1.3.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "express-session": "^1.15.4",
+    "mongoose": "^5.0.11",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "save": "^2.3.2",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0"
+  }
 }

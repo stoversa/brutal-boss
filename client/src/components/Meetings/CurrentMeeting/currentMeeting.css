@@ -1,0 +1,43 @@
+.review-option:hover, .list-group-item-action:hover{
+  border-color: #007bff;
+  cursor: pointer;
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
+/* ======================= FOOTER ======================= */
+footer {
+  background-color: black;
+  width: 100%;
+  color: white;
+  margin-top: 70px;
+  height: 60px;
+  padding: 20px;
+  position: static;
+  bottom: 0px;
+}
+
+.homeFooter {
+  background-color: black;
+  width: 100%;
+  color: white;
+  margin-top: 70px;
+  height: 60px;
+  padding: 6px;
+  position: static;
+  bottom: 0px;
+}
+
+.logoutFooter {
+  background-color: black;
+  width: 100%;
+  color: white;
+  margin-top: 70px;
+  height: 60px;
+  padding: 6px;
+  position: absolute;
+  bottom: 0px;
+}
