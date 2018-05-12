@@ -16,7 +16,7 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 // const mongoose = require("mongoose");
 const meetingRoutes = require("../src/controllers/routes/meetingAPI");
 const commentRoutes = require("../src/controllers/routes/commentsAPI");
-// const path = require("path");
+const path = require("path");
 const passport = require('./passport');
 const app = express();
 // const router = express.Router();
@@ -91,7 +91,7 @@ if (process.env.NODE_ENV === 'production') {
 	const path = require('path')
 	console.log('YOU ARE IN THE PRODUCTION ENV')
 	app.use('/static', express.static(path.join(__dirname, '../build/static')))
-	app.get('/', (req, res) => {
+	app.get('*', (req, res) => {
 		res.sendFile(path.join(__dirname, '../build/'))
 	})
 }
