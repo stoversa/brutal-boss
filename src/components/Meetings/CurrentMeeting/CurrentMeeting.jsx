@@ -1,7 +1,7 @@
 import React from 'react'
 import Tableheader from "./Subcomponents/Tableheader"
 import Tablerow from "./Subcomponents/Tablerow"
-import Modal from "./Subcomponents/Modal"
+import Modal from "./Subcomponents/Modal/Modal"
 import axios from "axios";
 import './currentMeeting.css';
 
@@ -16,6 +16,7 @@ class Review extends React.Component {
       commentAbout: "?",
       rating: "",
       comment: "",
+      tagArray: [],
       availableUsers: [
         {
           userId: 1,
@@ -87,7 +88,16 @@ class Review extends React.Component {
 
   recordRating = event => {
     this.setState({ rating: event.target.value });
-    console.log(this.state.rating);
+    let currentlyActive = document.getElementsByClassName("list-group-item active");
+    let oldChoice = currentlyActive[0];
+    if (oldChoice){
+      oldChoice.classList.remove("active");
+    }
+    event.target.classList.add("active");
+  }
+
+  addTag = event => {
+    this.setState({ tagArray: [...this.state.tagArray, event.target.value ]})
   }
 
   submitRating = event => {
