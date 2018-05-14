@@ -79,7 +79,7 @@ class SignupForm extends Component {
 									type="text"
 									className="form-control"
 									id="inputLastName"
-									placeholer="Last Name"
+									placeholder="Last Name"
 									name="lastName"
 									value={this.state.lastName}
 									onChange={this.handleChange}
