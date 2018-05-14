@@ -9,7 +9,6 @@ import Home from './components/Home'
 import MeetingDetail from "./components/Meetings/MeetingDetail";
 import MeetingStats from './components/Meetings/MeetingStats'
 import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
-import Review from './components/Meetings/CurrentMeeting/Subcomponents/Review'
 import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting'
 import Chat from "./components/Chat/Chat";
 import { slide as Menu } from 'react-burger-menu';
@@ -23,7 +22,6 @@ const DisplayLinks = props => {
 				<a className="menu-item" href="/">Home</a>
 				<a className="menu-item" href="/meetings">Meeting</a>
 				<a className="menu-item" href="/meeting-stats">Meeting Stats</a>
-				<a className="menu-item" href="/Review">Review Meeting</a>
 				<a className="menu-item" onClick={props._logout}>Logout</a>
 			</Menu>
 
@@ -130,12 +128,6 @@ class App extends Component {
 					exact path="/meeting-details" 
 					component={MeetingDetail} 
 					/>
-				<Route
-					path="/review"
-					render={() =>
-						<Review
-							user={this.state.user} />}
-				/>
 				<Route
 					path="/current"
 					render={() =>
