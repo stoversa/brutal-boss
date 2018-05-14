@@ -51,7 +51,7 @@ class Chat extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="card" onClick={this.close}><FontAwesome name="fas fa-minus" size="2x"/>
+            <div className="card" ><span onClick={this.close}><FontAwesome name="fas fa-minus" size="2x"/></span>
               <div className="card-body">
                 <div className="card-title">Global Chat</div>
                 <hr/>
