@@ -15,7 +15,7 @@ class Chat extends React.Component {
       isOpen: true
     };
 
-    this.socket = io("localhost:8080");
+    this.socket = io();
 
     this
       .socket
