@@ -4,3 +4,32 @@
     left: 0px;
     max-width: 300px;
 }
+
+.fa-minus {
+    margin-left: 205px;
+    cursor: pointer;
+}
+
+.plus {
+    margin-left: 10px;
+    background-color: white;
+    padding-top: 13px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 80px;
+    left: 0px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.chat {
+    float: right;
+    font-weight: 700;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+
+
+
+
