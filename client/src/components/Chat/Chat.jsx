@@ -1,6 +1,8 @@
 import React from "react";
 import io from "socket.io-client";
 import "./Chat.css";
+import FontAwesome from 'react-fontawesome';
+
 
 class Chat extends React.Component {
   constructor(props) {
@@ -49,9 +51,9 @@ class Chat extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="card">
+            <div className="card" onClick={this.close}><FontAwesome name="fas fa-minus" size="2x"/>
               <div className="card-body">
-                <div className="card-title" onClick={this.close}>Global Chat</div>
+                <div className="card-title">Global Chat</div>
                 <hr/>
                 <div className="messages">
                   {this
@@ -110,7 +112,8 @@ class Chat extends React.Component {
   }
 
   collapsed = () => {
-    return <div onClick={this.open}>This should be button</div>;
+    return <div className="plus" onClick={this.open}><FontAwesome name="fas fa-plus" size="2x"/>
+          <p className="chat">Chat</p></div>;
   }
 
   render() {
