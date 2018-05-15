@@ -147,8 +147,7 @@ class MeetingMainMenu extends React.Component {
                           className="form-control"
                           name="createdBy"
                           id="createdBy"
-                          value={this.state.user._id}
-                          onChange={this.onChange}
+                          value={this.state.user.firstName || this.state.user.local.username}
                           placeholder={this.state.user.local.username}
                         />
                       </div>
@@ -176,7 +175,7 @@ class MeetingMainMenu extends React.Component {
                           placeholder="Location or Platform"
                         />
                       </div>
-                      {this.state.meetingID ? <div><a href={"/current/?id=" + this.state.meetingID}><strong>Here</strong></a><p>/current/?id={this.state.meetingID}</p></div> : <p>Sorry we weren't able to create a meeting for you.</p>}
+                      {this.state.meetingID ? <div><p>Click or share this link: <a href={"/current/?id=" + this.state.meetingID}>{`${window.location.origin}${window.location.pathname}`}/current/?id={this.state.meetingID}</a></p></div> : <p>No meeting is currently available</p>}
 
                       <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
                     </form>
