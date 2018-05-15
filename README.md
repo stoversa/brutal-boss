@@ -1,10 +1,19 @@
-# Create React Express App
+# Brutal Boss
 
-## About This Boilerplate
+## About This Application
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+This app is designed to allow users to conduct more productive meetings. It allows users to create meetings and share the meeting URL with others, and then provide real-time feedback about the meeting. 
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Features
+- Real Time Chat
+- Sharing live meeting URLs
+- Instant Feedback Reports
+
+## Technologies Used
+- Socket.io
+- React
+- Boostrap 4
+- Node/Express
 
 ## Starting the app locally
 
@@ -15,7 +24,7 @@ yarn install
 cd client
 yarn install
 cd ..
-``
+```
 
 After both installations complete, run the following command in your terminal:
 
@@ -40,3 +49,11 @@ yarn build
 3. Push to Heroku
 
 If all previous steps were followed correctly, your application should be deployed to Heroku!
+
+## Developers on this Project
+- [Ryan O’Connor](https://github.com/rocsteady888)
+- [Sam Stover](https://github.com/stoversa)
+- [Greg Mckenzie](https://github.com/gregoryjmckenzie7)
+- [Jess Marrano](https://github.com/jmarrano09)
+- [Tony Gottschalk](https://github.com/t-gottschalk)
+- [Dawn Wages](https://github.com/dawnwages)
