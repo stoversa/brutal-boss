@@ -4,6 +4,8 @@
 
 This app is designed to allow users to conduct more productive meetings. It allows users to create meetings and share the meeting URL with others, and then provide real-time feedback about the meeting. 
 
+View a live example here: [https://brutalboss.herokuapp.com/](https://brutalboss.herokuapp.com/)
+
 ## Features
 - Real Time Chat
 - Sharing live meeting URLs
