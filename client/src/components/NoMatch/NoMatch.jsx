@@ -13,7 +13,7 @@ const NoMatch = props => {
         <section className="grid">
           <h1>Are you lost?: No Page Found</h1>
           <div className="text-center">
-            <img src="https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif"/>
+            <img src="https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif" alt="Loading Computer Gif"/>
           </div>
         </section>
 
