@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Route } from 'react-router-dom'
-import './App.css'
-import LoginForm from './components/Login/LoginForm'
-import SignupForm from './components/SignupForm'
-import Header from './components/Header'
-import Home from './components/Home'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Route, Switch } from 'react-router-dom';
+import './App.css';
+import LoginForm from './components/Login/LoginForm';
+import SignupForm from './components/SignupForm';
+import Header from './components/Header';
+import Home from './components/Home';
 import MeetingDetail from "./components/Meetings/MeetingDetail";
-import MeetingStats from './components/Meetings/MeetingStats'
-import MeetingMainMenu from './components/Meetings/MeetingMainMenu'
-import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting'
+import MeetingStats from './components/Meetings/MeetingStats';
+import MeetingMainMenu from './components/Meetings/MeetingMainMenu';
+import CurrentMeeting from './components/Meetings/CurrentMeeting/CurrentMeeting';
 import Chat from "./components/Chat/Chat";
 import { slide as Menu } from 'react-burger-menu';
+import NoMatch from "./components/NoMatch";
 
 
 const DisplayLinks = props => {
@@ -35,6 +36,21 @@ const DisplayLinks = props => {
 					<a className="menu-item" href="/login">Login</a>
 					<a className="menu-item" href="/signup">Sign Up</a>
 				</Menu>
+			</div>
+		)
+	}
+}
+
+const DisplayChat = props => {
+	if (props.loggedIn) {
+		return (
+			<div className="globalChat">
+				<Chat></Chat>
+			</div>
+		)
+	} else {
+		return (
+			<div className="globalChat">
 			</div>
 		)
 	}
@@ -106,7 +122,7 @@ class App extends Component {
 			<Header user={this.state.user} />
 
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
-				
+				<Switch>
 				<Route exact path="/" 
 					render={() => 
 						<Home 
@@ -144,10 +160,11 @@ class App extends Component {
 						/>}
 				/>
 				<Route exact path="/signup" component={SignupForm} />
+				<Route component={NoMatch} />
+				</Switch>
 
-				<div className="globalChat">
-					<Chat />
-				</div>
+				<DisplayChat _logout={this._logout} loggedIn={this.state.loggedIn} user={this.state.user} />
+				
 			</div>
 		)
 	}
