@@ -29,6 +29,10 @@
     padding-right: 10px;
 }
 
+.messages {
+    max-height: 200px;
+    overflow: scroll;
+}
 
 
 
