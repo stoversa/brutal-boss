@@ -33,7 +33,7 @@ class MeetingDetail extends React.Component {
               resTimestamp: [...this.state.resLabel, comment.timestamp],
               resLabel: [...this.state.resLabel, comment.commentAbout],
               charData: {
-                labels: this.state.resLabel,
+                labels: [...this.state.resLabel, comment.commentAbout],
                 datasets: [{
                   label: "Dataset #1",
                   backgroundColor: "rgba(255,99,132,0.2)",
@@ -41,7 +41,7 @@ class MeetingDetail extends React.Component {
                   borderWidth: 2,
                   hoverBackgroundColor: "rgba(255,99,132,0.4)",
                   hoverBorderColor: "rgba(255,99,132,1)",
-                  data: this.state.resData
+                  data: [...this.state.resData, comment.rating],
                 }]
               }
             })
@@ -84,7 +84,7 @@ class MeetingDetail extends React.Component {
                         }
                       }}
                     />
-                    <Bubble
+                    {/* <Bubble
                       data={this.state.charData}
                       //dynamically rendered graph will not start at zero unless specified
                       options={{
@@ -96,7 +96,7 @@ class MeetingDetail extends React.Component {
                           }]
                         }
                       }}
-                    />
+                    /> */}
                   </div>
 
                 </div>
