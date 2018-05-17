@@ -10,6 +10,7 @@ class Review extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      user:"",
       meetingId: "",
       ended: true,
       commentBy: "?",
@@ -68,6 +69,23 @@ class Review extends React.Component {
     };
   }
 
+  componentDidMount() {
+    axios.get('/auth/user').then(response => {
+      if (!!response.data.user) {
+        this.setState({
+          loggedIn: true,
+          user: response.data.user,
+          commentBy: response.data.user._id
+        })
+      } else {
+        this.setState({
+          loggedIn: false,
+          user: null
+        })
+      }
+    })
+  }
+
   handleChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
@@ -81,8 +99,7 @@ class Review extends React.Component {
 
   logThis = event => {
     this.setState({
-      commentAbout: event.target.getAttribute('data'),
-      commentBy: event.target.parentElement.getAttribute('data')
+      commentAbout: event.target.getAttribute('data')
     });
   }
 
@@ -191,9 +208,7 @@ class Review extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.availableUsers.map(user => (
-                    <Tablerow key={user.name + "row"} name={user.name} photo={user.photo} availableUsers={this.state.availableUsers} logThis={this.logThis} />
-                  ))}
+                  <Tablerow key={this.props.user.local.userName + "row"} name={this.props.user.firstName} photo={this.props.user.photos[0]} availableUsers={this.state.availableUsers} logThis={this.logThis} />
                 </tbody>
               </table>
               <Modal commentAbout={this.state.commentAbout} recordRating={this.recordRating} submitRating={this.submitRating} handleChange={this.handleChange}/>
